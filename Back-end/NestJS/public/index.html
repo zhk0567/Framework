@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NestJS 演示 — 呈现页</title>
+    <style>
+      :root {
+        color-scheme: dark light;
+        --bg: #0f1419;
+        --card: #1a2332;
+        --accent: #e11d48;
+        --text: #e6edf3;
+        --muted: #8b9cb3;
+        --ok: #22c55e;
+        --border: #2d3a4d;
+        font-family: "Segoe UI", system-ui, sans-serif;
+      }
+      @media (prefers-color-scheme: light) {
+        :root {
+          --bg: #f4f6f8;
+          --card: #fff;
+          --text: #0f172a;
+          --muted: #64748b;
+          --border: #e2e8f0;
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.55;
+      }
+      main {
+        max-width: 52rem;
+        margin: 0 auto;
+        padding: 2rem 1.25rem 3rem;
+      }
+      h1 {
+        font-size: 1.65rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        margin: 0 0 0.35rem;
+      }
+      .sub {
+        color: var(--muted);
+        font-size: 0.95rem;
+        margin-bottom: 1.75rem;
+      }
+      section {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1.1rem 1.25rem;
+        margin-bottom: 1rem;
+      }
+      section h2 {
+        font-size: 1rem;
+        margin: 0 0 0.65rem;
+        color: var(--accent);
+      }
+      pre {
+        margin: 0;
+        padding: 0.85rem 1rem;
+        background: rgba(0, 0, 0, 0.25);
+        border-radius: 8px;
+        overflow-x: auto;
+        font-size: 0.78rem;
+        line-height: 1.45;
+      }
+      @media (prefers-color-scheme: light) {
+        pre {
+          background: #f1f5f9;
+        }
+      }
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        align-items: center;
+        margin-top: 0.5rem;
+      }
+      button,
+      a.doc {
+        cursor: pointer;
+        border: 1px solid var(--border);
+        background: var(--accent);
+        color: #fff;
+        padding: 0.45rem 0.85rem;
+        border-radius: 8px;
+        font-size: 0.875rem;
+        text-decoration: none;
+        display: inline-block;
+      }
+      a.doc {
+        background: #0f172a;
+      }
+      @media (prefers-color-scheme: light) {
+        a.doc {
+          background: #334155;
+        }
+      }
+      button:disabled {
+        opacity: 0.55;
+        cursor: not-allowed;
+      }
+      input {
+        flex: 1;
+        min-width: 12rem;
+        padding: 0.45rem 0.65rem;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        background: transparent;
+        color: inherit;
+      }
+      .pill {
+        display: inline-block;
+        font-size: 0.75rem;
+        padding: 0.15rem 0.45rem;
+        border-radius: 999px;
+        background: rgba(225, 29, 72, 0.15);
+        color: var(--accent);
+      }
+      ul {
+        margin: 0.35rem 0 0;
+        padding-left: 1.15rem;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>NestJS 能力展台</h1>
+      <p class="sub">
+        默认端口 <strong>3001</strong>（与 Fastify 示例 3000 错开）。本页由
+        <code>AppController</code> 读取 <code>public/index.html</code> 返回；亦可打开
+        <a class="doc" href="/docs">Swagger UI（/docs）</a> 试调 API。
+        <span class="pill">模块 · DI · Pipe · Interceptor · Swagger</span>
+      </p>
+
+      <section>
+        <h2>健康检查 <code>GET /api/health</code></h2>
+        <button type="button" id="btn-health">请求</button>
+        <pre id="out-health">（点击请求）</pre>
+      </section>
+
+      <section>
+        <h2>请求管道说明 <code>GET /api/demo/lifecycle</code></h2>
+        <p style="margin: 0 0 0.5rem; font-size: 0.9rem; color: var(--muted)">
+          响应头应含 <code>x-nest-demo: demo-lifecycle-interceptor</code>（路由级拦截器）。
+        </p>
+        <button type="button" id="btn-lifecycle">请求</button>
+        <pre id="out-lifecycle">（点击请求）</pre>
+      </section>
+
+      <section>
+        <h2>DTO + ValidationPipe <code>GET/POST /api/items</code></h2>
+        <div class="row">
+          <button type="button" id="btn-items">刷新列表</button>
+        </div>
+        <div class="row">
+          <input id="new-title" type="text" maxlength="120" placeholder="新条目标题（空串会触发 400）" />
+          <button type="button" id="btn-create">创建</button>
+        </div>
+        <pre id="out-items">（点击刷新列表）</pre>
+      </section>
+
+      <section>
+        <h2>路由级拦截器 <code>GET /api/box/inner</code></h2>
+        <p style="margin: 0 0 0.5rem; font-size: 0.9rem; color: var(--muted)">
+          响应头 <code>x-feature-box: inner-interceptor</code>（仅 BoxController 挂载）。
+        </p>
+        <button type="button" id="btn-box">请求</button>
+        <pre id="out-box">（点击请求）</pre>
+      </section>
+
+      <section>
+        <h2>本示例体现的 Nest 特点</h2>
+        <ul>
+          <li><strong>ConfigModule</strong>：全局加载环境变量（可扩展为配置服务）。</li>
+          <li><strong>模块边界</strong>：`Health` / `Demo` / `Items` / `FeatureBox` 分模块注册。</li>
+          <li><strong>依赖注入</strong>：`ItemsService` 注入到 `ItemsController`。</li>
+          <li><strong>管道</strong>：`ValidationPipe` + `class-validator` DTO。</li>
+          <li><strong>拦截器分层</strong>：全局 `LoggingInterceptor` + 路由级演示拦截器。</li>
+          <li><strong>Swagger</strong>：OpenAPI 与 UI 在 <code>/docs</code>。</li>
+        </ul>
+      </section>
+    </main>
+    <script>
+      const $ = (id) => document.getElementById(id);
+
+      async function fetchJson(path, init) {
+        const res = await fetch(path, init);
+        const text = await res.text();
+        let body;
+        try {
+          body = JSON.parse(text);
+        } catch {
+          body = text;
+        }
+        return { ok: res.ok, status: res.status, body };
+      }
+
+      function show(el, data) {
+        el.textContent = JSON.stringify(data, null, 2);
+      }
+
+      $("btn-health").addEventListener("click", async () => {
+        const el = $("out-health");
+        el.textContent = "加载中…";
+        const r = await fetchJson("/api/health");
+        show(el, r);
+      });
+
+      $("btn-lifecycle").addEventListener("click", async () => {
+        const el = $("out-lifecycle");
+        el.textContent = "加载中…";
+        const res = await fetch("/api/demo/lifecycle");
+        const body = await res.json();
+        show(el, {
+          status: res.status,
+          headers: { "x-nest-demo": res.headers.get("x-nest-demo") },
+          body,
+        });
+      });
+
+      $("btn-items").addEventListener("click", async () => {
+        const el = $("out-items");
+        el.textContent = "加载中…";
+        const r = await fetchJson("/api/items");
+        show(el, r);
+      });
+
+      $("btn-create").addEventListener("click", async () => {
+        const el = $("out-items");
+        const title = $("new-title").value.trim();
+        if (!title) {
+          show(el, { error: "请输入标题（空标题将触发校验）" });
+          return;
+        }
+        el.textContent = "提交中…";
+        const r = await fetchJson("/api/items", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ title }),
+        });
+        show(el, r);
+        if (r.ok) $("new-title").value = "";
+      });
+
+      $("btn-box").addEventListener("click", async () => {
+        const el = $("out-box");
+        el.textContent = "加载中…";
+        const res = await fetch("/api/box/inner");
+        const body = await res.json();
+        show(el, {
+          status: res.status,
+          headers: { "x-feature-box": res.headers.get("x-feature-box") },
+          body,
+        });
+      });
+    </script>
+  </body>
+</html>
