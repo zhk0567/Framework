@@ -79,6 +79,7 @@ Front-end/Svelte/
 ├── vite.config.ts
 ├── svelte.config.js
 ├── package.json
+├── DOCS.md                   # 本目录说明（非 README 命名）
 ├── public/
 │   └── favicon.svg
 └── src/

@@ -79,7 +79,7 @@
   </main>
 
   <footer class="foot muted">
-    编辑 <code>src/App.svelte</code> 与 <code>src/components/*</code> 体验 HMR；详见本目录 README。
+    编辑 <code>src/App.svelte</code> 与 <code>src/components/*</code> 体验 HMR；详见本目录 <code>DOCS.md</code>。
   </footer>
 </div>
 

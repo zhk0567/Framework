@@ -65,6 +65,7 @@ npm run dev
 
 ```
 Fastify/
+  DOCS.md               # 本目录说明（非 README 命名）
   public/index.html     # 呈现页（静态）
   src/
     app.ts              # 组装插件与路由顺序

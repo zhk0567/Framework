@@ -59,6 +59,7 @@ npm run start:dev
 
 ```
 NestJS/
+  DOCS.md               # 本目录说明（非 README 命名）
   public/index.html
   src/
     main.ts
