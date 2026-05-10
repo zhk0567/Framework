@@ -4,7 +4,6 @@ import (
 	"crypto/rand"
 	"encoding/hex"
 	"embed"
-	"encoding/json"
 	"log"
 	"net/http"
 	"os"

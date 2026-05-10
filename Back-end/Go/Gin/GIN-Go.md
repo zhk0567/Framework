@@ -1,10 +1,10 @@
-# Back-end / Gin（Go）
+# Back-end / Go / Gin（Go）
 
 本目录为**独立 Go 模块**：含 `go.mod` 与源码，**不使用 Node**；请在**本目录**执行 `go mod tidy`（生成或更新 `go.sum`）后执行 `go run .`。
 
-## 与 Node 后端子项目的关系
+## 与 Node / 其他 Go 后端子项目的关系
 
-- **默认端口 `3002`**，可与 `Fastify`（3000）、`NestJS`（3001）同时运行。  
+- **默认端口 `3002`**；其它 Go 示例在同级目录 `Back-end/Go/*` 下，默认端口见仓库根目录 [README.md](../../../README.md)。可与 `Back-end/Node/Fastify`（3000）、`Back-end/Node/NestJS`（3001）同时运行（注意端口不冲突即可）。  
 - **路由对齐**：`/api/health`、`/api/demo/lifecycle`、`/api/items`、`/api/box/inner`，便于同一套 `fetch` 心智模型对照。  
 - **呈现页**：通过 `go:embed` 将 `public/index.html` 打进二进制，`GET /` 直接返回 HTML（不依赖工作目录下的静态文件服务配置）。
 
@@ -33,8 +33,8 @@ go version
 ## 安装与运行（Windows PowerShell）
 
 ```powershell
-Set-Location -LiteralPath 'f:\Study\Framework\Back-end\Gin'
-go mod download
+Set-Location -LiteralPath 'f:\Study\Framework\Back-end\Go\Gin'
+go mod tidy
 go run .
 ```
 
@@ -43,7 +43,7 @@ go run .
 可选环境变量见 `.env.example`（PowerShell 示例）：
 
 ```powershell
-$env:PORT = '3003'
+$env:PORT = '3099'
 $env:HOST = '127.0.0.1'
 go run .
 ```
@@ -53,7 +53,7 @@ go run .
 ## 编译为可执行文件
 
 ```powershell
-Set-Location -LiteralPath 'f:\Study\Framework\Back-end\Gin'
+Set-Location -LiteralPath 'f:\Study\Framework\Back-end\Go\Gin'
 go build -o gin-demo.exe .
 .\gin-demo.exe
 ```
@@ -72,13 +72,13 @@ go build -o gin-demo.exe .
 ## 目录结构
 
 ```
-Gin/
+Back-end/Go/Gin/
+  GIN-Go.md                 # 本目录说明（按栈命名，便于检索）
   go.mod
   main.go
-  DOCS.md             # 本目录说明（非 README 命名）
-  public/index.html   # 由 go:embed 嵌入
+  public/index.html         # 由 go:embed 嵌入
 ```
 
 ## 与前端联调（可选）
 
-在 Vite 子项目中将 `/api` 代理到 `http://127.0.0.1:3002`（注意端口）。
+在 Vite 子项目中将 `/api` 代理到当前运行的 Go 服务地址（Gin 默认 `http://127.0.0.1:3002`；其它端口见仓库根目录 [README.md](../../../README.md)）。

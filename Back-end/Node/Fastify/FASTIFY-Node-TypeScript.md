@@ -1,6 +1,6 @@
-# Back-end / Fastify
+# Back-end / Node / Fastify
 
-本目录为**独立 Node 工程**：依赖与锁文件仅存在于 `Back-end/Fastify`，请勿在仓库根目录执行 `npm install`。
+本目录为**独立 Node 工程**：依赖与锁文件仅存在于 `Back-end/Node/Fastify`，请勿在仓库根目录执行 `npm install`。
 
 ## 这个子项目想说明什么（Fastify 特点）
 
@@ -23,7 +23,7 @@
 请先进入本目录再执行命令：
 
 ```powershell
-Set-Location -LiteralPath 'f:\Study\Framework\Back-end\Fastify'
+Set-Location -LiteralPath 'f:\Study\Framework\Back-end\Node\Fastify'
 npm install
 npm run dev
 ```
@@ -32,10 +32,10 @@ npm run dev
 
 - **呈现页（静态 + 调用 API）**：`http://127.0.0.1:3000/` 或 `http://127.0.0.1:3000/index.html`
 
-若端口被占用，可临时指定：
+若端口被占用，可临时指定（勿与 Nest `3001`、各 Go 示例 `3002`–`3010` 冲突；端口表见仓库根目录 [README.md](../../../README.md)）：
 
 ```powershell
-$env:PORT = '3001'
+$env:PORT = '3020'
 npm run dev
 ```
 
@@ -65,11 +65,11 @@ npm run dev
 
 ```
 Fastify/
-  DOCS.md               # 本目录说明（非 README 命名）
-  public/index.html     # 呈现页（静态）
+  FASTIFY-Node-TypeScript.md   # 本目录说明（按栈命名，便于检索）
+  public/index.html            # 呈现页（静态）
   src/
-    app.ts              # 组装插件与路由顺序
-    server.ts           # 监听入口
+    app.ts                     # 组装插件与路由顺序
+    server.ts                  # 监听入口
     plugins/
       trace-lifecycle.ts
     routes/
@@ -78,9 +78,9 @@ Fastify/
       items.ts
       feature-box.ts
     types/
-      fastify.d.ts      # request 字段类型扩充
+      fastify.d.ts             # request 字段类型扩充
 ```
 
 ## 与前端联调（可选）
 
-在 Vite 子项目中为 `dev` 配置 `server.proxy`，将 `/api` 代理到本服务地址（例如 `http://127.0.0.1:3000`），即可在 React/Vue 开发服务器中同源访问 API。
+在 Vite 子项目中为 `dev` 配置 `server.proxy`，将 `/api` 代理到本服务地址（例如 `http://127.0.0.1:3000`），即可在 React/Vue/Svelte 开发服务器中同源访问 API。

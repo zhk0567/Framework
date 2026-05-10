@@ -65,7 +65,7 @@ Front-end/React/
 ├── index.html
 ├── vite.config.ts
 ├── package.json
-├── DOCS.md                   # 本目录说明（非 README 命名）
+├── REACT-Vite-TypeScript.md   # 本目录说明（按栈命名，便于检索）
 ├── src/
 │   ├── main.tsx              # 入口，含 StrictMode
 │   ├── App.tsx               # 页头、锚点导航、能力总览、演示栅格组合

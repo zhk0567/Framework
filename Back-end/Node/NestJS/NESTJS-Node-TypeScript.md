@@ -1,11 +1,11 @@
-# Back-end / NestJS
+# Back-end / Node / NestJS
 
-本目录为**独立 Node 工程**：依赖与锁文件仅存在于 `Back-end/NestJS`，请勿在仓库根目录执行 `npm install`。
+本目录为**独立 Node 工程**：依赖与锁文件仅存在于 `Back-end/Node/NestJS`，请勿在仓库根目录执行 `npm install`。
 
-## 与 Fastify 子项目的关系
+## 与其他后端示例的关系
 
-- **默认端口 `3001`**，便于与 `Back-end/Fastify`（默认 `3000`）同时运行、对照请求与日志。  
-- **路由形状对齐**：`/api/health`、`/api/demo/lifecycle`、`/api/items`、`/api/box/inner`，便于同一套 `fetch` 心智模型对比两种框架。
+- **默认端口 `3001`**，便于与 `Back-end/Node/Fastify`（默认 `3000`）、`Back-end/Go/*`（默认 `3002`–`3010`）同时运行；端口总览见仓库根目录 [README.md](../../../README.md)。  
+- **路由形状对齐**：`/api/health`、`/api/demo/lifecycle`、`/api/items`、`/api/box/inner`，便于同一套 `fetch` 心智模型对比多种框架。
 
 ## 这个子项目想说明什么（Nest 特点）
 
@@ -26,7 +26,7 @@
 ## 安装与运行（Windows PowerShell）
 
 ```powershell
-Set-Location -LiteralPath 'f:\Study\Framework\Back-end\NestJS'
+Set-Location -LiteralPath 'f:\Study\Framework\Back-end\Node\NestJS'
 npm install
 npm run start:dev
 ```
@@ -59,7 +59,7 @@ npm run start:dev
 
 ```
 NestJS/
-  DOCS.md               # 本目录说明（非 README 命名）
+  NESTJS-Node-TypeScript.md   # 本目录说明（按栈命名，便于检索）
   public/index.html
   src/
     main.ts
@@ -74,4 +74,4 @@ NestJS/
 
 ## 与前端联调（可选）
 
-在 Vite 子项目中将 `/api` 代理到 `http://127.0.0.1:3001`（注意端口与 Fastify 区分），即可在开发服务器中访问上述路径。
+在 Vite 子项目中将 `/api` 代理到 `http://127.0.0.1:3001`（注意端口与其他后端区分），即可在开发服务器中访问上述路径。

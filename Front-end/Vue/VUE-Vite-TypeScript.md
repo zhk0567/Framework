@@ -65,7 +65,7 @@ Front-end/Vue/
 ├── index.html
 ├── vite.config.ts
 ├── package.json
-├── DOCS.md                   # 本目录说明（非 README 命名）
+├── VUE-Vite-TypeScript.md       # 本目录说明（按栈命名，便于检索）
 ├── src/
 │   ├── main.ts
 │   ├── App.vue                 # 根布局、锚点导航、能力标签、演示栅格
@@ -104,4 +104,4 @@ Front-end/Vue/
 
 ## 与仓库总览的关系
 
-仓库根目录说明见：[../../README.md](../../README.md)。React 对照示例见：[../React/DOCS.md](../React/DOCS.md)。
+仓库根目录说明见：[../../README.md](../../README.md)。React 对照示例见：[../React/REACT-Vite-TypeScript.md](../React/REACT-Vite-TypeScript.md)。

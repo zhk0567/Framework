@@ -79,7 +79,7 @@ Front-end/Svelte/
 ├── vite.config.ts
 ├── svelte.config.js
 ├── package.json
-├── DOCS.md                   # 本目录说明（非 README 命名）
+├── SVELTE-Vite-TypeScript.md   # 本目录说明（按栈命名，便于检索）
 ├── public/
 │   └── favicon.svg
 └── src/
@@ -97,3 +97,7 @@ Front-end/Svelte/
         ├── TransitionCard.svelte
         └── ClassToggle.svelte
 ```
+
+## 与仓库总览的关系
+
+仓库根目录说明见：[../../README.md](../../README.md)。React / Vue 对照见 [../React/REACT-Vite-TypeScript.md](../React/REACT-Vite-TypeScript.md)、[../Vue/VUE-Vite-TypeScript.md](../Vue/VUE-Vite-TypeScript.md)。

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Beego 演示 — 呈现页</title>
+    <style>
+      :root {
+        color-scheme: dark light;
+        --bg: #0f1419;
+        --card: #1a2332;
+        --accent: #eab308;
+        --text: #e6edf3;
+        --muted: #8b9cb3;
+        --border: #2d3a4d;
+        font-family: "Segoe UI", system-ui, sans-serif;
+        line-height: 1.55;
+      }
+      @media (prefers-color-scheme: light) {
+        :root {
+          --bg: #f4f6f8;
+          --card: #fff;
+          --text: #0f172a;
+          --muted: #64748b;
+          --border: #e2e8f0;
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: var(--bg);
+        color: var(--text);
+      }
+      main {
+        max-width: 52rem;
+        margin: 0 auto;
+        padding: 2rem 1.25rem 3rem;
+      }
+      h1 {
+        font-size: 1.65rem;
+        margin: 0 0 0.35rem;
+      }
+      .sub {
+        color: var(--muted);
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+      }
+      section {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1rem 1.2rem;
+        margin-bottom: 1rem;
+      }
+      section h2 {
+        font-size: 1rem;
+        margin: 0 0 0.6rem;
+        color: var(--accent);
+      }
+      pre {
+        margin: 0;
+        padding: 0.85rem 1rem;
+        background: rgba(0, 0, 0, 0.22);
+        border-radius: 8px;
+        overflow-x: auto;
+        font-size: 0.78rem;
+      }
+      @media (prefers-color-scheme: light) {
+        pre {
+          background: #f1f5f9;
+        }
+      }
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        align-items: center;
+        margin-top: 0.45rem;
+      }
+      button {
+        cursor: pointer;
+        border: 1px solid var(--border);
+        background: var(--accent);
+        color: #1a1a0a;
+        font-weight: 600;
+        padding: 0.45rem 0.85rem;
+        border-radius: 8px;
+        font-size: 0.875rem;
+      }
+      input {
+        flex: 1;
+        min-width: 12rem;
+        padding: 0.45rem 0.65rem;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        background: transparent;
+        color: inherit;
+      }
+      .pill {
+        display: inline-block;
+        font-size: 0.75rem;
+        padding: 0.15rem 0.45rem;
+        border-radius: 999px;
+        background: rgba(234, 179, 8, 0.15);
+        color: var(--accent);
+      }
+      ul {
+        margin: 0.35rem 0 0;
+        padding-left: 1.15rem;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      code {
+        font-size: 0.88em;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Beego 能力展台</h1>
+      <p class="sub">
+        默认端口 <strong>3006</strong>。<code>go:embed</code> 嵌入本页。
+        <span class="pill">Router · InsertFilter · Controller</span>
+      </p>
+      <section>
+        <h2>健康检查 <code>GET /api/health</code></h2>
+        <button type="button" id="btn-health">请求</button>
+        <pre id="out-health">（点击请求）</pre>
+      </section>
+      <section>
+        <h2>管线说明 <code>GET /api/demo/lifecycle</code></h2>
+        <p style="margin: 0 0 0.5rem; font-size: 0.9rem; color: var(--muted)">响应头 <code>x-beego-demo</code></p>
+        <button type="button" id="btn-lifecycle">请求</button>
+        <pre id="out-lifecycle">（点击请求）</pre>
+      </section>
+      <section>
+        <h2>JSON <code>GET/POST /api/items</code></h2>
+        <div class="row">
+          <button type="button" id="btn-items">刷新列表</button>
+        </div>
+        <div class="row">
+          <input id="new-title" type="text" maxlength="120" placeholder="新标题" />
+          <button type="button" id="btn-create">创建</button>
+        </div>
+        <pre id="out-items">（点击刷新列表）</pre>
+      </section>
+      <section>
+        <h2>路由 <code>GET /api/box/inner</code></h2>
+        <button type="button" id="btn-box">请求</button>
+        <pre id="out-box">（点击请求）</pre>
+      </section>
+      <section>
+        <h2>Beego 特点（本示例）</h2>
+        <ul>
+          <li>Router 字符串映射到 Controller 方法。</li>
+          <li>InsertFilter 实现前缀级「中间件」。</li>
+          <li>适合习惯 MVC / 全家桶的团队。</li>
+        </ul>
+      </section>
+    </main>
+    <script>
+      const $ = (id) => document.getElementById(id);
+      async function fetchJson(path, init) {
+        const res = await fetch(path, init);
+        const text = await res.text();
+        let body;
+        try {
+          body = JSON.parse(text);
+        } catch {
+          body = text;
+        }
+        return { ok: res.ok, status: res.status, body };
+      }
+      function show(el, data) {
+        el.textContent = JSON.stringify(data, null, 2);
+      }
+      $("btn-health").addEventListener("click", async () => {
+        const el = $("out-health");
+        el.textContent = "加载中…";
+        show(el, await fetchJson("/api/health"));
+      });
+      $("btn-lifecycle").addEventListener("click", async () => {
+        const el = $("out-lifecycle");
+        el.textContent = "加载中…";
+        const res = await fetch("/api/demo/lifecycle");
+        const body = await res.json();
+        show(el, {
+          status: res.status,
+          headers: { "x-beego-demo": res.headers.get("x-beego-demo") },
+          body,
+        });
+      });
+      $("btn-items").addEventListener("click", async () => {
+        const el = $("out-items");
+        el.textContent = "加载中…";
+        show(el, await fetchJson("/api/items"));
+      });
+      $("btn-create").addEventListener("click", async () => {
+        const el = $("out-items");
+        const title = $("new-title").value.trim();
+        if (!title) {
+          show(el, { error: "请输入标题" });
+          return;
+        }
+        el.textContent = "提交中…";
+        const r = await fetchJson("/api/items", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ title }),
+        });
+        show(el, r);
+        if (r.ok) $("new-title").value = "";
+      });
+      $("btn-box").addEventListener("click", async () => {
+        const el = $("out-box");
+        el.textContent = "加载中…";
+        const res = await fetch("/api/box/inner");
+        const body = await res.json();
+        show(el, {
+          status: res.status,
+          headers: { "x-feature-box": res.headers.get("x-feature-box") },
+          body,
+        });
+      });
+    </script>
+  </body>
+</html>
