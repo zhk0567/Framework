@@ -1,5 +1,14 @@
 # Svelte 前端示例
 
+## 框架简介
+
+**Svelte** 由 Rich Harris 创建（现由 Vercel 等社区与公司共同推进），核心理念是**编译时框架**：在构建阶段把组件编译为高效的原生 JS，运行时**无虚拟 DOM 整树 diff** 负担。**Svelte 5** 引入 **runes**（`$state`、`$derived`、`$effect`、`$props()` 等）统一响应式语义，并强化 **snippet** 与 `{@render}` 等组合模式。
+
+- 官方文档：<https://svelte.dev/docs>
+- SvelteKit（全栈）：<https://svelte.dev/docs/kit>（对照本仓库 `Full-stack/SvelteKit`）
+
+## 在本仓库中的角色
+
 本目录为 **Vite + Svelte 5 + TypeScript** 单页应用，与仓库内 React、Vue 子项目**同一构建范式**（Vite、独立 `package.json`）；**不依赖后端**，页面为「能力展台」式演示。
 
 ## 技术栈

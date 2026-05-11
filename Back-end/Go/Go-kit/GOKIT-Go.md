@@ -1,6 +1,15 @@
 # Back-end / Go / go-kit（Go）
 
-独立 Go 模块；**`/api/health`** 使用 `github.com/go-kit/kit/transport/http` 的 **`NewServer`** 与 **`endpoint`**，其余路由为标准 **`http.ServeMux`** + **`HandlerFunc`**，默认端口 **3010**。
+## 框架简介
+
+**Go kit** 是 **Peter Bourgon** 倡导的 **微服务工具集**（而非「全家桶框架」）：核心抽象是 **`endpoint`（业务边界）**、**`transport`（HTTP/gRPC 等）** 与 **可组合中间件**（日志、指标、追踪）。鼓励显式分层与可测试性；学习曲线偏「**先理解模式再写代码**」。
+
+- 官方网站：<https://gokit.io/>
+- 源码：<https://github.com/go-kit/kit>
+
+## 在本仓库中的角色
+
+独立 Go 模块；**`/api/health`** 使用 `github.com/go-kit/kit/transport/http` 的 **`NewServer`** 与 **`endpoint`**，其余路由为标准 **`http.ServeMux`** + **`HandlerFunc`**，默认端口 **3010**。演示 **endpoint 分层心智** 与其余「单框架路由」对照。
 
 ## 特点速览
 

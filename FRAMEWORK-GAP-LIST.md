@@ -15,56 +15,25 @@
 
 ## 二、前端 · 组件库 / 运行时（非「整应用脚手架」级）
 
-| 名称 | 备注 |
-|------|------|
-| **Inferno** | 类 React 轻量运行时 |
-| **Riot.js** | 轻量组件化 |
-| **Marko** | eBay 出品，流式与标签化 |
-| **Million** | 虚拟 DOM 优化层，常与 React 同用 |
-| **htmx** | 以 HTML 属性驱动局部刷新，常配服务端模板 |
-| **Unpoly / Turbo (Hotwire)** | HTML-over-the-wire 类库 |
-| **WebComponents 裸写** | 仅用浏览器原生 Custom Elements，无 Lit 类封装 |
+下列技术已迁入 **`Front-end/`** 子工程（Inferno、Riot、Marko、Million、Htmx、Unpoly、Turbo、WebComponents），端口与命令见根目录 [README.md](README.md)。
 
 ---
 
 ## 三、前端 · 跨端 / 非浏览器为主
 
-| 名称 | 备注 |
-|------|------|
-| **React Native** | 移动端 |
-| **Expo** | RN 工具链与托管构建 |
-| **Flutter** | Dart，移动 + Web |
-| **Ionic** | 混合壳 + Web 技术栈 |
-| **Capacitor / Cordova** | Web 打包原生壳 |
-| **Tauri** | Rust + WebView 桌面 |
-| **Electron** | Chromium 桌面 |
-| **.NET MAUI** | 微软跨平台 UI |
-| **Kotlin Multiplatform Mobile** | 共享逻辑 + 各端 UI |
+下列技术已迁入 **`Front-end/`**（Electron、Tauri、Expo、React-Native、Ionic、Capacitor、Flutter）或以 **说明 / 可合并源码** 形式提供（DotNet-Maui、Kotlin-Mobile；**Capacitor** 说明中含 **Cordova** 对照）。路径与命令见根目录 [README.md](README.md)。
 
 ---
 
 ## 四、前端 · 微软 / WASM UI
 
-| 名称 | 备注 |
-|------|------|
-| **Blazor WebAssembly** | C# 在浏览器运行 |
-| **Blazor Server** | SignalR 流式 UI |
+**Blazor WebAssembly** 与 **Blazor Server** 已迁入 **`Front-end/Blazor-WebAssembly`**、**`Front-end/Blazor-Server`**，命令见根目录 [README.md](README.md)。
 
 ---
 
 ## 五、Node.js 后端
 
-| 名称 | 备注 |
-|------|------|
-| **Express** | 生态大、教程多 |
-| **Koa** | 中间件洋葱模型 |
-| **Hapi** | 插件化企业向 |
-| **Restify** | REST API 专注 |
-| **AdonisJS** | 全功能 MVC/ORM 一体 |
-| **Strapi** | 无头 CMS（常作「后端」交付） |
-| **Directus** | 无头 CMS / BaaS |
-| **Hono** | 轻量、边缘与多运行时友好 |
-| **Elysia** | Bun 生态常见 |
+下列技术已迁入 **`Back-end/Node/`**（Express、Koa、Hapi、Restify、Hono 为 **npm + tsx** 最小示例；**Elysia** 为 **Bun** 脚本；**AdonisJS / Strapi / Directus** 为 **`/api/health` 形态对齐的 Node `http` 占位** + 各目录内指向官方 CLI 的说明）。默认端口 **3011–3019**，与 Fastify `3000`、Nest `3001`、Go 示例错开；命令与树见根目录 [README.md](README.md)。
 
 ---
 

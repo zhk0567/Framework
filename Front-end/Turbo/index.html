@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Turbo（Hotwire）能力展台</title>
+  </head>
+  <body>
+    <div class="shell">
+      <h1>Turbo（Hotwire）能力展台</h1>
+      <p class="lead muted">
+        <strong>@hotwired/turbo</strong> 的 <code>&lt;turbo-frame&gt;</code>：在帧内导航/提交时只替换该帧对应的
+        HTML；本页用 Vite 中间件返回帧片段。
+      </p>
+      <ul class="tag-list">
+        <li>Turbo 8</li>
+        <li>Vite 8</li>
+        <li>TS（入口脚本）</li>
+      </ul>
+      <section class="panel">
+        <h2>状态（turbo-frame）</h2>
+        <turbo-frame id="turbo-count" src="/api/turbo/count">加载中…</turbo-frame>
+      </section>
+      <section class="panel">
+        <h2>列表（帧内表单 GET）</h2>
+        <turbo-frame id="turbo-list" src="/api/turbo/list">加载中…</turbo-frame>
+      </section>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

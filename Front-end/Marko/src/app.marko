@@ -1,0 +1,58 @@
+class {
+  onCreate() {
+    this.state = {
+      count: 0,
+      draft: '',
+      items: ['示例项'],
+      tags: ['Marko 5', '@marko/vite', 'Vite 8', 'TS'],
+    };
+  }
+  inc() {
+    this.state.count++;
+  }
+  setDraft(ev) {
+    this.state.draft = ev.target.value;
+  }
+  add() {
+    const t = String(this.state.draft).trim();
+    if (!t) return;
+    this.state.items = [t, ...this.state.items];
+    this.state.draft = '';
+  }
+}
+
+<div class="shell">
+  <h1>Marko 能力展台</h1>
+  <p class="lead muted">
+    标签化模板 + <strong>class 组件</strong> 与 <code>state</code>（非 React 范式）。
+  </p>
+  <ul class="tag-list">
+    <for|t| of=state.tags>
+      <li>${t}</li>
+    </for>
+  </ul>
+  <section class="panel">
+    <h2>状态</h2>
+    <p class="lead">计数：${state.count}</p>
+    <div class="row">
+      <button type="button" on-click("inc")>+1</button>
+    </div>
+  </section>
+  <section class="panel">
+    <h2>列表</h2>
+    <div class="row">
+      <input
+        type="text"
+        value=state.draft
+        on-input("setDraft")
+        placeholder="新条目"
+      />
+      <button type="button" class="secondary" on-click("add")>添加</button>
+    </div>
+    <ul>
+      <for|x| of=state.items>
+        <li>${x}</li>
+      </for>
+    </ul>
+  </section>
+</div>

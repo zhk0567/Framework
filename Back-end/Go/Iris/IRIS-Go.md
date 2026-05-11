@@ -1,6 +1,15 @@
 # Back-end / Go / Iris（Go）
 
-独立 Go 模块；路由与仓库内其他 Go / Node 后端对齐，默认端口 **3007**。
+## 框架简介
+
+**Iris** 是自称「**最快的 Go Web 框架**」之一的高阶框架：提供 **MVC、会话、视图引擎、Websocket、JWT** 等丰富内置能力，API 风格偏「**batteries-included**」。适合希望 **少引入第三方库** 即完成常见 Web 功能的团队；学习曲线相对 chi 更陡。
+
+- 官方网站：<https://www.iris-go.com/>
+- 文档：<https://www.iris-go.com/docs>
+
+## 在本仓库中的角色
+
+独立 Go 模块；路由与仓库内其他 Go / Node 后端对齐，默认端口 **3007**。演示 **Party 子路由、Context API、go:embed 呈现页** 等与其它示例同构的展台。
 
 ## 特点速览
 

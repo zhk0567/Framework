@@ -1,6 +1,15 @@
 # Back-end / Node / Fastify
 
-本目录为**独立 Node 工程**：依赖与锁文件仅存在于 `Back-end/Node/Fastify`，请勿在仓库根目录执行 `npm install`。
+## 框架简介
+
+**Fastify** 是专注于**高性能**的 Node.js Web 框架：默认集成 **Pino** 日志、基于 **JSON Schema** 的请求/响应校验与序列化，并以 **插件（plugin）** 与 **装饰器式封装域** 组织路由与中间件。由 OpenJS Foundation 孵化路线相关社区维护，在微服务与 API Gateway 场景中常见。
+
+- 官方网站：<https://fastify.dev/>
+- 文档：<https://fastify.dev/docs/latest/>
+
+## 在本仓库中的角色
+
+本目录为**独立 Node 工程**：依赖与锁文件仅存在于 `Back-end/Node/Fastify`，请勿在仓库根目录执行 `npm install`。示例展示插件、`fastify-plugin` 提升作用域、Schema、生命周期钩子与静态资源同机托管。
 
 ## 这个子项目想说明什么（Fastify 特点）
 
@@ -32,7 +41,7 @@ npm run dev
 
 - **呈现页（静态 + 调用 API）**：`http://127.0.0.1:3000/` 或 `http://127.0.0.1:3000/index.html`
 
-若端口被占用，可临时指定（勿与 Nest `3001`、各 Go 示例 `3002`–`3010` 冲突；端口表见仓库根目录 [README.md](../../../README.md)）：
+若端口被占用，可临时指定（勿与 Nest `3001`、各 Go 示例 `3002`–`3010`、其它 Node 子目录 `3011`–`3019` 冲突；端口表见仓库根目录 [README.md](../../../README.md)）：
 
 ```powershell
 $env:PORT = '3020'

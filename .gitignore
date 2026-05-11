@@ -6,3 +6,15 @@ Desktop.ini
 
 # Logs
 *.log
+
+# Dependencies and build output (monorepo-wide)
+node_modules/
+dist/
+build/
+.next/
+.nuxt/
+.output/
+.vite/
+.turbo/
+coverage/
+*.tsbuildinfo

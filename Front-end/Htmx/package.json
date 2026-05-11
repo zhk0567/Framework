@@ -1,0 +1,19 @@
+{
+  "name": "htmx-showcase",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev --port 5194",
+    "build": "vite build",
+    "preview": "vite preview --port 5194"
+  },
+  "dependencies": {
+    "htmx.org": "^2.0.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "~6.0.2",
+    "vite": "^8.0.10"
+  }
+}

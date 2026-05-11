@@ -1,0 +1,27 @@
+{
+  "name": "electron-showcase",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "electron.cjs",
+  "scripts": {
+    "dev": "concurrently -k \"vite dev --port 5201 --strictPort\" \"wait-on http://127.0.0.1:5201 && cross-env ELECTRON_DEV=1 electron .\"",
+    "build": "vite build",
+    "start": "cross-env ELECTRON_DEV=0 electron ."
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "electron": "^35.0.0",
+    "typescript": "~6.0.2",
+    "vite": "^8.0.10",
+    "wait-on": "^8.0.1"
+  }
+}

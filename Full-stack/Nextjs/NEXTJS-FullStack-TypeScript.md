@@ -1,5 +1,14 @@
 # Next.js 全栈示例
 
+## 框架简介
+
+**Next.js** 由 Vercel 主导开发，是基于 **React** 的 **全栈与元框架**：提供**文件系统路由**、**服务端组件（RSC）**、**Route Handlers**、**中间件**、**图片与字体优化**、**增量静态再生成（ISR）** 等能力，覆盖从静态站点到动态 SSR/Edge 的多种部署形态。当前主线为 **App Router**（`app/` 目录），与旧 **Pages Router** 并存但官方推荐新项目以 App Router 为主。
+
+- 官方文档：<https://nextjs.org/docs>
+- 学习路线：<https://nextjs.org/learn>
+
+## 在本仓库中的角色
+
 本目录为 **Next.js 15 · App Router · React 19 · TypeScript** 应用，位于 **`Full-stack/`**（与 `Front-end/` 下纯 Vite SPA 分开存放）。用于对照：同一子工程内既有 **页面** 也有 **HTTP API**（Route Handler）。
 
 ## 技术栈
@@ -12,7 +21,7 @@
 
 ## 与其它子项目的关系
 
-- **端口**：开发/生产启动脚本使用 **`-p 3030`**，避免与 `Back-end/Node/Fastify`（`3000`）、`NestJS`（`3001`）及 `Back-end/Go/*`（`3002`–`3010`）冲突。
+- **端口**：开发/生产启动脚本使用 **`-p 3030`**，避免与 `Back-end/Node/Fastify`（`3000`）、`NestJS`（`3001`）、`Back-end/Go/*`（`3002`–`3010`）、其它 `Back-end/Node/*`（`3011`–`3019`）冲突。
 - **未收录的全栈/后端名字**：见仓库根目录 [FRAMEWORK-GAP-LIST.md](../../FRAMEWORK-GAP-LIST.md)。
 
 ## 快速开始（Windows PowerShell）

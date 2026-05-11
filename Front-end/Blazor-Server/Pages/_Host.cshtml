@@ -1,0 +1,22 @@
+@page "/_Host"
+@namespace BlazorServer.Pages
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blazor Server 能力展台</title>
+    <base href="~/" />
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="BlazorServer.styles.css" />
+    <component type="typeof(HeadOutlet)" render-mode="ServerPrerendered" />
+</head>
+<body>
+    <component type="typeof(App)" render-mode="ServerPrerendered" />
+    <script src="_framework/blazor.server.js"></script>
+</body>
+</html>

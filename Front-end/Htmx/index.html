@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>htmx 能力展台</title>
+  </head>
+  <body>
+    <div class="shell">
+      <h1>htmx 能力展台</h1>
+      <p class="lead muted">
+        以 <strong>HTML 属性</strong>（如 <code>hx-get</code>）请求<strong>服务端片段</strong>并替换 DOM；本页用
+        Vite 开发中间件模拟最小 JSON/HTML 片段接口。
+      </p>
+      <ul class="tag-list">
+        <li>htmx 2</li>
+        <li>Vite 8</li>
+        <li>TS（入口脚本）</li>
+      </ul>
+      <section class="panel">
+        <h2>状态（片段替换）</h2>
+        <p class="lead">计数：<span id="htmx-count">0</span></p>
+        <div class="row">
+          <button
+            type="button"
+            hx-get="/api/htmx/count"
+            hx-target="#htmx-count"
+            hx-swap="outerHTML"
+          >
+            +1（htmx）
+          </button>
+        </div>
+      </section>
+      <section class="panel">
+        <h2>列表（innerHTML 片段）</h2>
+        <div class="row">
+          <input type="text" id="htmx-add" name="add" placeholder="新条目" />
+          <button
+            type="button"
+            class="secondary"
+            hx-get="/api/htmx/list"
+            hx-include="#htmx-add"
+            hx-target="#htmx-list"
+            hx-swap="innerHTML"
+          >
+            添加
+          </button>
+        </div>
+        <ul id="htmx-list">
+          <li>示例项</li>
+        </ul>
+      </section>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

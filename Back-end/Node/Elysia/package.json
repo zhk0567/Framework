@@ -1,0 +1,21 @@
+{
+  "name": "framework-back-end-elysia",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Elysia 最小 API：Bun 运行时、@elysiajs/static 呈现页",
+  "type": "module",
+  "scripts": {
+    "dev": "bun --watch src/server.ts",
+    "start": "bun src/server.ts"
+  },
+  "engines": {
+    "bun": ">=1.1.0"
+  },
+  "dependencies": {
+    "@elysiajs/static": "^1.0.2",
+    "elysia": "^1.1.27"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2"
+  }
+}

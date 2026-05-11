@@ -1,5 +1,14 @@
 # Vue 前端示例
 
+## 框架简介
+
+**Vue** 由尤雨溪创建，定位为**渐进式**框架：可从「嵌入一块组件」扩展到完整 SPA。**Vue 3** 以 **Composition API**（`setup`、`ref`、`reactive`）与 **`<script setup>`** 为主流，配合 **单文件组件（SFC）** 将模板、脚本、样式同文件管理。官方生态包含 **Vue Router**、**Pinia**、**Vite** 插件等，中文资料与社区活跃。
+
+- 官方文档：<https://vuejs.org/>（英文） / <https://cn.vuejs.org/>（中文）
+- 设计哲学：<https://vuejs.org/guide/introduction.html#the-progressive-framework>
+
+## 在本仓库中的角色
+
 本目录为 **Vite + Vue 3 + TypeScript** 单页应用，用于与仓库内其他前端栈对照练习；**不依赖后端**，当前页面为「能力展台」式多模块演示。
 
 ## 技术栈

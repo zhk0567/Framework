@@ -1,0 +1,23 @@
+{
+  "name": "inferno",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev --port 5190",
+    "build": "vite build",
+    "preview": "vite preview --port 5190"
+  },
+  "dependencies": {
+    "inferno": "^9.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-typescript": "^7.26.0",
+    "@types/node": "^22.10.2",
+    "babel-plugin-inferno": "^6.8.5",
+    "typescript": "~6.0.2",
+    "vite": "^8.0.10",
+    "vite-plugin-babel": "^1.6.0"
+  }
+}

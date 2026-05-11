@@ -1,5 +1,14 @@
 # Solid 前端示例
 
+## 框架简介
+
+**Solid** 由 Ryan Carniato 创建，采用**细粒度响应式**与 **JSX**：编译后直接在依赖边上订阅更新，**无虚拟 DOM 全树协调**；API 表面与 React 相似（`createSignal` 对应 `useState` 的拆分形态、`Show`/`For` 等控制流组件），但语义是**同步拉取 + 精确失效**，性能特征不同。生态含 **SolidStart** 等全栈方案（本仓库未单独收录时可对照官方）。
+
+- 官方网站：<https://www.solidjs.com/>
+- 教程：<https://docs.solidjs.com/>
+
+## 在本仓库中的角色
+
 本目录为 **Vite + Solid + TypeScript** 单页应用，与仓库内 React、Vue、Svelte 子项目**同一构建范式**（Vite、独立 `package.json`）；**不依赖后端**，页面为「能力展台」式演示。
 
 ## 技术栈

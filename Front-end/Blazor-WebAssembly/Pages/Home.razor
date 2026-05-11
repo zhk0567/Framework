@@ -1,0 +1,50 @@
+@page "/"
+
+<PageTitle>Blazor WebAssembly 能力展台</PageTitle>
+
+<h1>Blazor WebAssembly 能力展台</h1>
+<p class="lead muted">
+    C# + Razor 在<strong>浏览器 WebAssembly</strong> 中运行；与 <strong>Blazor Server</strong>（SignalR 流式 UI）对照见
+    <code>Front-end/Blazor-Server</code>。
+</p>
+<ul class="tag-list">
+    <li>Blazor WASM</li>
+    <li>.NET 9</li>
+    <li>Razor</li>
+</ul>
+
+<section class="panel">
+    <h2>状态</h2>
+    <p class="lead">计数：@count</p>
+    <button type="button" class="btn" @onclick="Inc">+1</button>
+</section>
+
+<section class="panel">
+    <h2>列表</h2>
+    <div class="row">
+        <input class="input" @bind="draft" @bind:event="oninput" placeholder="新条目" />
+        <button type="button" class="btn secondary" @onclick="Add">添加</button>
+    </div>
+    <ul>
+        @foreach (var x in items)
+        {
+            <li>@x</li>
+        }
+    </ul>
+</section>
+
+@code {
+    private int count;
+    private string draft = "";
+    private readonly List<string> items = ["示例项"];
+
+    private void Inc() => count++;
+
+    private void Add()
+    {
+        var t = draft.Trim();
+        if (string.IsNullOrEmpty(t)) return;
+        items.Insert(0, t);
+        draft = "";
+    }
+}

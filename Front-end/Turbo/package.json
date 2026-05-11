@@ -1,0 +1,19 @@
+{
+  "name": "turbo-showcase",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev --port 5196",
+    "build": "vite build",
+    "preview": "vite preview --port 5196"
+  },
+  "dependencies": {
+    "@hotwired/turbo": "^8.0.20"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "~6.0.2",
+    "vite": "^8.0.10"
+  }
+}

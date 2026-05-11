@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unpoly 能力展台</title>
+  </head>
+  <body>
+    <div class="shell">
+      <h1>Unpoly 能力展台</h1>
+      <p class="lead muted">
+        <strong>HTML-over-the-wire</strong> 渐进增强：通过链接/表单属性（如 <code>up-target</code>）拉取片段并更新 DOM；本页用
+        Vite 中间件模拟最小接口。
+      </p>
+      <ul class="tag-list">
+        <li>Unpoly 3</li>
+        <li>Vite 8</li>
+        <li>TS（入口脚本）</li>
+      </ul>
+      <section class="panel">
+        <h2>状态（片段替换）</h2>
+        <p class="lead">
+          计数：
+          <span id="unpoly-count-wrap">
+            <span id="unpoly-count">0</span>
+          </span>
+        </p>
+        <div class="row">
+          <a href="/api/unpoly/count" up-target="#unpoly-count-wrap" up-follow
+            >+1（Unpoly）</a
+          >
+        </div>
+      </section>
+      <section class="panel">
+        <h2>列表（整段替换）</h2>
+        <form
+          class="row"
+          method="get"
+          action="/api/unpoly/list"
+          up-target="#unpoly-list-slot"
+        >
+          <input type="text" name="add" placeholder="新条目" />
+          <button type="submit" class="secondary">添加</button>
+        </form>
+        <div id="unpoly-list-slot">
+          <ul id="unpoly-list">
+            <li>示例项</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

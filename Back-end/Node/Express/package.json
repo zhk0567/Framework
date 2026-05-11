@@ -1,0 +1,26 @@
+{
+  "name": "framework-back-end-express",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Express 最小 API：中间件、JSON、静态呈现页，与仓库内其它 Node 后端在 /api 形态上对齐",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "tsx src/server.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

@@ -1,5 +1,14 @@
 # Back-end / Go / go-zero（Go）
 
+## 框架简介
+
+**go-zero**（零微）是 **Bilibili** 开源的 **微服务 Go 框架**：内置 **API 定义 → 代码生成（goctl）**、**限流、熔断、监控、日志、配置中心** 等生产设施，强调「**工具链 + 约定**」一体交付。完整项目通常包含 **rpc、model、api** 多模块；本仓库示例刻意精简为单文件 HTTP，便于与 Gin 等对照路由形状。
+
+- 官方网站：<https://go-zero.dev/>
+- 文档：<https://go-zero.dev/docs>
+
+## 在本仓库中的角色
+
 独立 Go 模块；使用 `github.com/zeromicro/go-zero/rest` 的最小 HTTP 演示，默认端口 **3008**。
 
 ## 特点速览

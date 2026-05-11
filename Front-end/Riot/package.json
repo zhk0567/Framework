@@ -1,0 +1,21 @@
+{
+  "name": "riot-showcase",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev --port 5191",
+    "build": "vite build",
+    "preview": "vite preview --port 5191"
+  },
+  "dependencies": {
+    "riot": "^9.4.2"
+  },
+  "devDependencies": {
+    "@riotjs/compiler": "^10.0.2",
+    "@types/node": "^22.10.2",
+    "rollup-plugin-riot": "^10.0.0",
+    "typescript": "~6.0.2",
+    "vite": "^8.0.10"
+  }
+}

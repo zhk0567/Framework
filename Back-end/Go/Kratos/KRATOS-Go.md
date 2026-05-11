@@ -1,5 +1,14 @@
 # Back-end / Go / Kratos（Go）
 
+## 框架简介
+
+**Kratos** 是 **Bilibili** 开源的 **Go 微服务框架**：提供 **传输层（HTTP/gRPC）**、**服务发现、中间件、日志、配置、依赖注入** 等与 **protobuf** 紧密集成的工程化能力。官方推荐 **`kratos-layout`** 作为完整服务仓库模板；本目录仅挂载 **HTTP Server** 以保持与其它示例可比。
+
+- 官方网站：<https://go-kratos.dev/>
+- 文档：<https://go-kratos.dev/docs/>
+
+## 在本仓库中的角色
+
 独立 Go 模块；使用 `github.com/go-kratos/kratos/v2` 的 **`transport/http`** 与 **`kratos.App`**，默认监听 **127.0.0.1:3009**。
 
 ## 特点速览

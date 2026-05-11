@@ -1,5 +1,14 @@
 # React 前端示例
 
+## 框架简介
+
+**React** 由 Meta 维护，是当前**生态最广**的声明式 UI 库：用 **JSX/TSX** 描述组件树，用 **Hooks**（`useState`、`useEffect`、`use` 等）组织状态与副作用。自 2013 年开源以来经历了 Fiber、并发渲染、Server Components 等演进；**React 19** 以 **react.dev** 为官方文档主站。React **只负责视图层**，路由、数据获取、SSR/SSG 通常与 **React Router**、**TanStack Query**、**Next.js**（见仓库 `Full-stack/Nextjs`）等组合使用。
+
+- 官方文档：<https://react.dev/>
+- 版本发布说明：<https://react.dev/blog>
+
+## 在本仓库中的角色
+
 本目录为 **Vite + React 19 + TypeScript** 单页应用，用于练习与展示 React 常见写法；**不依赖后端**，接口与数据均为浏览器内模拟或本地存储。
 
 ## 技术栈

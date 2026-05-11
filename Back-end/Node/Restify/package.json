@@ -1,0 +1,24 @@
+{
+  "name": "framework-back-end-restify",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Restify 最小 API：REST 风格服务、链式插件、静态呈现页",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "tsx src/server.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "restify": "^11.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "@types/restify": "^8.5.12",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

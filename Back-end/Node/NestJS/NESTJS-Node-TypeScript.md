@@ -1,10 +1,19 @@
 # Back-end / Node / NestJS
 
-本目录为**独立 Node 工程**：依赖与锁文件仅存在于 `Back-end/Node/NestJS`，请勿在仓库根目录执行 `npm install`。
+## 框架简介
+
+**NestJS** 是受 Angular 启发的 **Node.js 服务端框架**：以 **TypeScript** 为一等语言，提供 **模块化（Module）**、**依赖注入（DI）**、**装饰器式路由与守卫**、**管道（Pipe）校验**、**拦截器** 等企业级结构。底层 HTTP 适配默认基于 **Express** 或 **Fastify**（可切换），并常与 **TypeORM / Prisma**、**Passport**、**Swagger** 等集成。
+
+- 官方网站：<https://nestjs.com/>
+- 文档：<https://docs.nestjs.com/>
+
+## 在本仓库中的角色
+
+本目录为**独立 Node 工程**：依赖与锁文件仅存在于 `Back-end/Node/NestJS`，请勿在仓库根目录执行 `npm install`。示例覆盖模块拆分、DTO 校验、拦截器、Swagger 与静态呈现页。
 
 ## 与其他后端示例的关系
 
-- **默认端口 `3001`**，便于与 `Back-end/Node/Fastify`（默认 `3000`）、`Back-end/Go/*`（默认 `3002`–`3010`）同时运行；端口总览见仓库根目录 [README.md](../../../README.md)。  
+- **默认端口 `3001`**，便于与 `Back-end/Node/Fastify`（默认 `3000`）、`Back-end/Go/*`（默认 `3002`–`3010`）、其它 `Back-end/Node/*`（默认 `3011`–`3019`）同时运行；端口总览见仓库根目录 [README.md](../../../README.md)。  
 - **路由形状对齐**：`/api/health`、`/api/demo/lifecycle`、`/api/items`、`/api/box/inner`，便于同一套 `fetch` 心智模型对比多种框架。
 
 ## 这个子项目想说明什么（Nest 特点）

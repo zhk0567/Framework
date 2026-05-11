@@ -1,0 +1,30 @@
+{
+  "name": "framework-back-end-koa",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Koa 最小 API：洋葱模型中间件、@koa/router、静态呈现页",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "tsx src/server.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@koa/cors": "^5.0.0",
+    "@koa/router": "^15.0.0",
+    "koa": "^2.15.4",
+    "koa-static": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/koa__cors": "^5.0.1",
+    "@types/koa": "^2.15.0",
+    "@types/koa-static": "^4.0.4",
+    "@types/koa__router": "^12.0.4",
+    "@types/node": "^22.10.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

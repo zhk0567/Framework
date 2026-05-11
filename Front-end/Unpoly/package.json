@@ -1,0 +1,19 @@
+{
+  "name": "unpoly-showcase",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev --port 5195",
+    "build": "vite build",
+    "preview": "vite preview --port 5195"
+  },
+  "dependencies": {
+    "unpoly": "^3.14.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "~6.0.2",
+    "vite": "^8.0.10"
+  }
+}

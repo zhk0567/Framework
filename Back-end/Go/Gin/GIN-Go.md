@@ -1,6 +1,15 @@
 # Back-end / Go / Gin（Go）
 
-本目录为**独立 Go 模块**：含 `go.mod` 与源码，**不使用 Node**；请在**本目录**执行 `go mod tidy`（生成或更新 `go.sum`）后执行 `go run .`。
+## 框架简介
+
+**Gin** 是 Go 生态中最广泛使用的 **HTTP Web 框架**之一：基于 **httprouter** 风格的高性能路由树，提供 **`gin.Context`** 封装请求/响应、JSON 绑定、中间件链与分组路由。API 刻意保持轻量，常与 **GORM**、**Viper**、**Zap** 等库组合构建生产服务。作者及社区长期维护，中文资料丰富。
+
+- 官方网站：<https://gin-gonic.com/zh-cn/>
+- 源码：<https://github.com/gin-gonic/gin>
+
+## 在本仓库中的角色
+
+本目录为**独立 Go 模块**：含 `go.mod` 与源码，**不使用 Node**；请在**本目录**执行 `go mod tidy`（生成或更新 `go.sum`）后执行 `go run .`。路由与 JSON 形态与 **Fastify、NestJS** 等 Node 示例对齐，便于横向对照。
 
 ## 与 Node / 其他 Go 后端子项目的关系
 
