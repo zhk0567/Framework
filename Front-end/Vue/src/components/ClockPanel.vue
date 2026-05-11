@@ -1,53 +1,28 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref } from 'vue'
-import PanelFrame from './PanelFrame.vue'
+import { onMounted, onUnmounted, ref } from 'vue';
 
-const now = ref(new Date())
-let timer: ReturnType<typeof setInterval> | undefined
+const time = ref('');
+
+function tick() {
+  time.value = new Date().toLocaleTimeString('zh-CN', { hour12: false });
+}
+
+let id: ReturnType<typeof setInterval> | undefined;
 
 onMounted(() => {
-  timer = setInterval(() => {
-    now.value = new Date()
-  }, 1000)
-})
+  tick();
+  id = window.setInterval(tick, 1000);
+});
 
 onUnmounted(() => {
-  if (timer !== undefined) clearInterval(timer)
-})
-
-const text = () =>
-  now.value.toLocaleTimeString('zh-CN', {
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit',
-    hour12: false,
-  })
+  if (id !== undefined) window.clearInterval(id);
+});
 </script>
 
 <template>
-  <PanelFrame panel-id="section-clock">
-    <template #title>生命周期：<code>onMounted</code> / <code>onUnmounted</code></template>
-    <template #desc>
-      在挂载时注册定时器，卸载时清理，避免内存泄漏。
-    </template>
-    <p class="clock-label">实时时钟</p>
-    <p class="clock-time" aria-live="polite">{{ text() }}</p>
-  </PanelFrame>
+  <div class="panel">
+    <h2>生命周期与定时器</h2>
+    <p class="lead"><code>onMounted</code> 注册、<code>onUnmounted</code> 清理。</p>
+    <p style="margin: 0; font-variant-numeric: tabular-nums">{{ time }}</p>
+  </div>
 </template>
-
-<style scoped>
-.clock-label {
-  margin: 0 0 4px;
-  font-size: 13px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--text);
-}
-
-.clock-time {
-  margin: 0;
-  font: 600 36px/1.1 var(--mono);
-  color: var(--text-h);
-  letter-spacing: 0.04em;
-}
-</style>

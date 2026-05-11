@@ -1,0 +1,68 @@
+/* Ember 展台布局 */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: #0f1419;
+  color: #e6edf3;
+  line-height: 1.5;
+}
+@media (prefers-color-scheme: light) {
+  body {
+    background: #f4f6f8;
+    color: #0f172a;
+  }
+}
+.ember-shell {
+  padding: 24px 20px 40px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.ember-shell h1 {
+  margin: 0 0 8px;
+  font-size: 1.65rem;
+}
+.ember-muted {
+  margin: 0;
+  max-width: 44rem;
+  color: #8b9cb3;
+  font-size: 0.95rem;
+}
+.ember-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 0;
+}
+.ember-tags li {
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid #2d3a4d;
+  color: #8b9cb3;
+}
+.ember-panel {
+  border: 1px solid #2d3a4d;
+  border-radius: 12px;
+  padding: 14px 16px;
+  background: #1a2332;
+  margin-top: 12px;
+}
+.ember-panel h2 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  color: #e04e39;
+}
+.ember-foot {
+  margin-top: 22px;
+  font-size: 0.875rem;
+  color: #8b9cb3;
+}
+code {
+  font-size: 0.9em;
+  padding: 0.1em 0.35em;
+  border-radius: 6px;
+  background: rgba(224, 78, 57, 0.12);
+  color: #e04e39;
+}

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alpine.js 能力展台</title>
+  </head>
+  <body>
+    <div class="shell" x-data="showcase">
+      <header>
+        <h1>Alpine.js 能力展台</h1>
+        <p class="muted" style="margin: 0 0 12px; max-width: 44rem">
+          在 HTML 上写 <code>x-data</code>、<code>x-on</code> / <code>@click</code>；<strong>无需构建步骤亦可 CDN 使用</strong>，本目录用 Vite 仅作模块打包。
+        </p>
+      </header>
+      <section class="panel">
+        <h2>x-data / x-text</h2>
+        <p class="muted" style="margin: 0 0 8px">计数与派生展示。</p>
+        <div class="row">
+          <button type="button" @click="inc()">+1</button>
+          <span class="muted">count = <span x-text="count"></span>， doubled = <span x-text="count * 2"></span></span>
+        </div>
+      </section>
+      <section class="panel">
+        <h2>x-text 时钟</h2>
+        <p class="muted" style="margin: 0 0 8px">init 中 setInterval。</p>
+        <p style="margin: 0; font-variant-numeric: tabular-nums" x-text="clock"></p>
+      </section>
+      <section class="panel">
+        <h2>x-for</h2>
+        <div class="row" style="margin-bottom: 8px">
+          <input type="text" x-model="draft" placeholder="新待办" @keydown.enter="addTodo()" />
+          <button type="button" @click="addTodo()">添加</button>
+        </div>
+        <template x-for="item in items" :key="item.id">
+          <p style="margin: 4px 0" x-text="item.title"></p>
+        </template>
+      </section>
+      <section class="panel">
+        <h2>x-show</h2>
+        <div class="row" style="margin-bottom: 8px">
+          <button type="button" class="secondary" @click="toggle()">切换</button>
+        </div>
+        <p x-show="visible" style="margin: 0">主内容可见（x-show）。</p>
+        <p x-show="!visible" class="muted" style="margin: 0">已隐藏。</p>
+      </section>
+      <footer class="muted" style="margin-top: 20px; font-size: 0.875rem">详见 ALPINE-Vite-TypeScript.md</footer>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

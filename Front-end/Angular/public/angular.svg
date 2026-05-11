@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 250" width="44" height="44" role="img" aria-label="Angular">
+  <path fill="#dd0031" d="M125 30 45 60l15 120 65 40 65-40 15-120z"/>
+  <path fill="#c3002f" d="M125 30v90l55-30zm0 90-55-30 55 30v70l-55-30V90z"/>
+  <path fill="#fff" d="m125 88 34 56H91z" opacity=".95"/>
+</svg>

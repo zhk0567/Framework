@@ -1,0 +1,16 @@
+/* 全局展台布局（Lit 组件内另有 :host 样式） */
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: #0f1419;
+  color: #e6edf3;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+@media (prefers-color-scheme: light) {
+  html,
+  body {
+    background: #f4f6f8;
+    color: #0f172a;
+  }
+}

@@ -5,18 +5,16 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc -b && vite build",
+    "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.5.32"
+    "vue": "^3.5.24"
   },
   "devDependencies": {
-    "@types/node": "^24.12.2",
-    "@vitejs/plugin-vue": "^6.0.6",
-    "@vue/tsconfig": "^0.9.1",
+    "@vitejs/plugin-vue": "^6.0.1",
     "typescript": "~6.0.2",
-    "vite": "^8.0.10",
-    "vue-tsc": "^3.2.7"
+    "vite": "^8.0.12",
+    "vue-tsc": "^3.1.3"
   }
 }

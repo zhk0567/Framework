@@ -1,0 +1,34 @@
+<template>
+  <div class="shell">
+    <h1>Aurelia 2 能力展台</h1>
+    <p class="muted">
+      <strong>Vite + @aurelia/vite-plugin</strong>；模板绑定、<code>repeat.for</code>、<code>if.bind</code> 与仓库其它展台同一类交互。
+    </p>
+    <div class="grid">
+      <section class="panel">
+        <h2>方法绑定</h2>
+        <div class="row">
+          <button type="button" click.trigger="inc()">+1</button>
+          <span class="muted">count = ${count}， doubled = ${doubled}</span>
+        </div>
+      </section>
+      <section class="panel">
+        <h2>列表</h2>
+        <div class="row">
+          <input type="text" value.bind="draft" keydown.trigger="onKey($event)" placeholder="新待办" />
+          <button type="button" click.trigger="addTodo()">添加</button>
+        </div>
+        <ul>
+          <li repeat.for="item of items">${item.title}</li>
+        </ul>
+      </section>
+      <section class="panel">
+        <h2>条件</h2>
+        <button type="button" class="sec" click.trigger="toggle()">切换</button>
+        <p if.bind="visible" style="margin: 8px 0 0">主内容可见。</p>
+        <p else class="muted" style="margin: 8px 0 0">已隐藏。</p>
+      </section>
+    </div>
+    <footer class="muted" style="margin-top: 22px; font-size: 0.875rem">详见 AURELIA-Vite-TypeScript.md</footer>
+  </div>
+</template>

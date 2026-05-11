@@ -1,57 +1,30 @@
 <script setup lang="ts">
-import { onErrorCaptured, ref } from 'vue'
-import BuggyWidget from './BuggyWidget.vue'
-import PanelFrame from './PanelFrame.vue'
+import { onErrorCaptured, ref } from 'vue';
+import BuggyWidget from './BuggyWidget.vue';
 
-const errMsg = ref<string | null>(null)
-const recoverKey = ref(0)
+const trigger = ref(false);
+const captured = ref<string | null>(null);
 
 onErrorCaptured((err) => {
-  errMsg.value = err instanceof Error ? err.message : String(err)
-  return false
-})
+  captured.value = err instanceof Error ? err.message : String(err);
+  trigger.value = false;
+  return false;
+});
 
-function retry() {
-  errMsg.value = null
-  recoverKey.value += 1
+function boom() {
+  captured.value = null;
+  trigger.value = true;
 }
 </script>
 
 <template>
-  <PanelFrame panel-id="section-error">
-    <template #title><code>onErrorCaptured</code> 错误捕获</template>
-    <template #desc>
-      Vue 无类组件式 Error Boundary；组合式 API 可在祖先用 <code>onErrorCaptured</code> 拦截子组件树错误并降级展示。
-    </template>
-    <div v-if="errMsg" class="fallback" role="alert">
-      <p>已捕获：<strong>{{ errMsg }}</strong></p>
-      <button type="button" class="btn" @click="retry">重试并重挂载子树</button>
+  <div class="panel">
+    <h2>onErrorCaptured</h2>
+    <p class="lead">捕获子组件错误并降级展示（思路接近 React Error Boundary）。</p>
+    <BuggyWidget :trigger="trigger" />
+    <div class="row" style="margin-top: 10px">
+      <button type="button" @click="boom">触发错误</button>
     </div>
-    <BuggyWidget v-else :key="recoverKey" />
-  </PanelFrame>
+    <p v-if="captured" class="muted" style="margin: 10px 0 0">已捕获：{{ captured }}</p>
+  </div>
 </template>
-
-<style scoped>
-.fallback {
-  padding: 12px 14px;
-  border-radius: 10px;
-  border: 1px solid var(--accent-border);
-  background: var(--accent-bg);
-}
-
-.fallback p {
-  margin: 0 0 10px;
-  font-size: 14px;
-  color: var(--text-h);
-}
-
-.btn {
-  font: 14px var(--sans);
-  padding: 8px 16px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  background: var(--accent);
-  color: #fff;
-}
-</style>

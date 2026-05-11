@@ -1,0 +1,15 @@
+{
+  "name": "fable-demo",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "fable": "dotnet fable . -o dist --noCache",
+    "dev": "npm run fable && vite",
+    "build": "npm run fable && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.0.1"
+  }
+}

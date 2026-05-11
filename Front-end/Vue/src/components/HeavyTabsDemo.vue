@@ -1,104 +1,59 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import PanelFrame from './PanelFrame.vue'
+import { ref } from 'vue';
 
-type Tab = 'a' | 'b' | 'c'
+const tabs = [
+  { id: 'a', title: '面板 A', body: '较重 DOM 块 A：列表占位。' },
+  { id: 'b', title: '面板 B', body: '较重 DOM 块 B：列表占位。' },
+  { id: 'c', title: '面板 C', body: '较重 DOM 块 C：列表占位。' },
+] as const;
 
-const tab = ref<Tab>('a')
-
-const tabs: { id: Tab; label: string }[] = [
-  { id: 'a', label: '面板 A' },
-  { id: 'b', label: '面板 B' },
-  { id: 'c', label: '面板 C' },
-]
+const active = ref<(typeof tabs)[number]['id']>('a');
 </script>
 
 <template>
-  <PanelFrame panel-id="section-transition">
-    <template #title><code>&lt;Transition&gt;</code> 与重内容切换</template>
-    <template #desc>
-      <code>mode="out-in"</code> 先出后进；内部用 <code>:key</code> 区分面板以便过渡与重渲染。
-    </template>
-    <div class="bar" role="tablist" aria-label="演示标签">
+  <div class="panel">
+    <h2>Transition <code>mode="out-in"</code></h2>
+    <p class="lead">标签切换时使用淡出再淡入（尊重系统减少动效）。</p>
+    <div class="row" style="margin-bottom: 10px">
       <button
         v-for="t in tabs"
         :key="t.id"
         type="button"
-        class="tab"
-        :class="{ active: tab === t.id }"
-        role="tab"
-        :aria-selected="tab === t.id"
-        @click="tab = t.id"
+        :class="{ secondary: active !== t.id }"
+        @click="active = t.id"
       >
-        {{ t.label }}
+        {{ t.title }}
       </button>
     </div>
     <Transition name="fade" mode="out-in">
-      <div :key="tab" class="pane" role="tabpanel">
-        <p class="pane-title">大量节点 · {{ tab.toUpperCase() }}</p>
-        <div class="grid" aria-hidden="true">
-          <span v-for="n in 280" :key="n" class="cell" />
-        </div>
+      <div :key="active" class="heavy-block">
+        <template v-for="t in tabs" :key="t.id">
+          <div v-if="active === t.id">
+            <p style="margin: 0 0 8px">{{ t.body }}</p>
+            <ul class="fake-list">
+              <li v-for="n in 28" :key="`${t.id}-${n}`">行 {{ n }}</li>
+            </ul>
+          </div>
+        </template>
       </div>
     </Transition>
-  </PanelFrame>
+  </div>
 </template>
 
 <style scoped>
-.bar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 12px;
+.heavy-block {
+  min-height: 12rem;
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  overflow: auto;
+  max-height: 220px;
 }
 
-.tab {
-  font: 14px var(--sans);
-  padding: 8px 14px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  background: var(--bg);
-  color: var(--text-h);
-  cursor: pointer;
-}
-
-.tab.active {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 2px var(--accent-bg);
-}
-
-.pane-title {
-  margin: 0 0 8px;
-  font-size: 14px;
-  color: var(--text-h);
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(20, 1fr);
-  gap: 3px;
-}
-
-.cell {
-  aspect-ratio: 1;
-  border-radius: 2px;
-  background: color-mix(in srgb, var(--accent) 38%, var(--border));
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.18s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .fade-enter-active,
-  .fade-leave-active {
-    transition: none;
-  }
+.fake-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  font-size: 0.8rem;
+  color: var(--muted);
 }
 </style>

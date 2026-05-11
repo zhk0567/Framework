@@ -1,0 +1,45 @@
+<div class="shell">
+  <header class="hero">
+    <img src="/angular.svg" width="44" height="44" alt="Angular logo" />
+    <div class="hero-text">
+      <h1>Angular 能力展台</h1>
+      <p class="lead muted">
+        与 React / Vue / Svelte / Solid 子项目相同：<strong>独立前端工程</strong>、无后端依赖。本示例使用
+        <strong>Angular CLI</strong>（非 Vite），突出 <strong>signal</strong>、内置控制流与 Standalone 组件。
+      </p>
+    </div>
+  </header>
+
+  <nav class="demo-nav" aria-label="章节">
+    <ul>
+      @for (item of nav; track item.href) {
+        <li>
+          <a [href]="item.href" class="nav-a">{{ item.label }}</a>
+        </li>
+      }
+    </ul>
+  </nav>
+
+  <section id="features" class="feature-block" aria-label="能力标签">
+    <p class="muted" style="margin: 0 0 6px">
+      下列标签对应本页组件；可对照其它子项目的响应式与列表写法。
+    </p>
+    <ul class="tag-list">
+      @for (t of tags; track t) {
+        <li>{{ t }}</li>
+      }
+    </ul>
+  </section>
+
+  <main class="grid">
+    <app-signals-demo />
+    <app-effect-clock />
+    <app-for-todo />
+    <app-show-demo />
+  </main>
+
+  <footer class="foot muted">
+    编辑 <code>src/app/app.component.html</code> 与 <code>src/app/components/*</code> 体验热替换；说明见
+    <code>ANGULAR-CLI-TypeScript.md</code>。
+  </footer>
+</div>

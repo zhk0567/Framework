@@ -1,10 +1,12 @@
 # Framework
 
+**规模一览**：**15** 个前端 + **2** 个 Node 后端 + **9** 个 Go 后端，共 **26** 个可独立运行的子工程。
+
 多技术栈对照学习的**样板仓库**：每个子目录是**独立工程**（Node 系自带 `package.json`；Go 系自带 `go.mod`），依赖只装在该子目录内；**不要在仓库根目录执行 `npm install`**（根目录不设 Node 工程）。
 
 **目录约定**
 
-- **前端**：在 [`Front-end/`](Front-end) 下按框架分子目录（React / Vue / Svelte），每个子目录一个 Vite + TypeScript 工程。  
+- **前端**：在 [`Front-end/`](Front-end) 下按框架分子目录；主流栈含 **React / Vue / Svelte / Solid**（Vite）、**Angular**（CLI），并对照扩展 **Qwik、Preact、Lit、Alpine、Mithril、Backbone、Ember、Stencil、Aurelia、Fable** 等；**Stencil** 使用自身编译器，**Fable** 需 **.NET SDK**。每个对标栈的子目录都是**完整可运行工程**（含 `package.json` 与 `src/` 等），与同名栈说明（如 `VUE-Vite-TypeScript.md`）一致维护，而不是仅放一篇文档。  
 - **后端**：在 [`Back-end/`](Back-end) 下按语言再分子目录——[`Back-end/Node/`](Back-end/Node) 存放 **Fastify** 与 **NestJS**；[`Back-end/Go/`](Back-end/Go) 存放各 **Go** 框架示例。这样一眼能区分「npm 栈」与「Go 模块」。
 
 ---
@@ -13,7 +15,7 @@
 
 | 用途 | 说明 |
 |------|------|
-| 前端对照 | 在同一类工具链（Vite + TypeScript）下对比 **React**、**Vue** 与 **Svelte** 的写法与能力差异。 |
+| 前端对照 | 对比多类范式：组件框架（React / Vue / Svelte / Solid / Angular / Preact / Aurelia）、**可恢复**（Qwik）、**Web 组件**（Lit / Stencil）、**指令式**（Alpine）、**轻量 MVC**（Mithril / Backbone / Ember）、**F# 编译**（Fable）等。 |
 | 后端对照 | **Node**（`Back-end/Node`）与 **Go**（`Back-end/Go`）多套实现路由形态对齐（`/api/*`），便于对照请求、响应头与 JSON。 |
 | 复制起步 | 需要某一栈时，直接复制对应子目录作为最小可运行起点。 |
 
@@ -37,6 +39,23 @@
 | [Front-end/React](Front-end/React) | React 19 · Vite · TypeScript | `npm run dev` 后见终端 URL | [REACT-Vite-TypeScript.md](Front-end/React/REACT-Vite-TypeScript.md) |
 | [Front-end/Vue](Front-end/Vue) | Vue 3 · Vite · TypeScript | 同上 | [VUE-Vite-TypeScript.md](Front-end/Vue/VUE-Vite-TypeScript.md) |
 | [Front-end/Svelte](Front-end/Svelte) | Svelte 5 · Vite · TypeScript | 同上 | [SVELTE-Vite-TypeScript.md](Front-end/Svelte/SVELTE-Vite-TypeScript.md) |
+| [Front-end/Solid](Front-end/Solid) | Solid · Vite · TypeScript | 同上 | [SOLID-Vite-TypeScript.md](Front-end/Solid/SOLID-Vite-TypeScript.md) |
+| [Front-end/Angular](Front-end/Angular) | Angular 19 · CLI · TypeScript | `npm start` → 默认 `http://127.0.0.1:4200/` | [ANGULAR-CLI-TypeScript.md](Front-end/Angular/ANGULAR-CLI-TypeScript.md) |
+
+#### 更多前端（对照学习扩展）
+
+| 子项目 | 技术栈 | 说明文档 |
+|--------|--------|----------|
+| [Front-end/Qwik](Front-end/Qwik) | Qwik City · Vite | [QWIK-Vite-TypeScript.md](Front-end/Qwik/QWIK-Vite-TypeScript.md) |
+| [Front-end/Preact](Front-end/Preact) | Preact · Vite · TS | [PREACT-Vite-TypeScript.md](Front-end/Preact/PREACT-Vite-TypeScript.md) |
+| [Front-end/Lit](Front-end/Lit) | Lit · Vite · TS | [LIT-Vite-TypeScript.md](Front-end/Lit/LIT-Vite-TypeScript.md) |
+| [Front-end/Alpine](Front-end/Alpine) | Alpine.js · Vite · TS | [ALPINE-Vite-TypeScript.md](Front-end/Alpine/ALPINE-Vite-TypeScript.md) |
+| [Front-end/Mithril](Front-end/Mithril) | Mithril · Vite · TS | [MITHRIL-Vite-TypeScript.md](Front-end/Mithril/MITHRIL-Vite-TypeScript.md) |
+| [Front-end/Backbone](Front-end/Backbone) | Backbone · jQuery · Vite · TS | [BACKBONE-Vite-TypeScript.md](Front-end/Backbone/BACKBONE-Vite-TypeScript.md) |
+| [Front-end/Ember](Front-end/Ember) | Ember CLI · ember-demo | [EMBER-CLI-TypeScript.md](Front-end/Ember/EMBER-CLI-TypeScript.md) |
+| [Front-end/Stencil](Front-end/Stencil) | Stencil 编译器 | [STENCIL-Compiler-TypeScript.md](Front-end/Stencil/STENCIL-Compiler-TypeScript.md) |
+| [Front-end/Aurelia](Front-end/Aurelia) | Aurelia 2 · Vite（端口 `5177`） | [AURELIA-Vite-TypeScript.md](Front-end/Aurelia/AURELIA-Vite-TypeScript.md) |
+| [Front-end/Fable](Front-end/Fable) | Fable · F#（需 .NET） | [FABLE-DotNet.md](Front-end/Fable/FABLE-DotNet.md) |
 
 ### 后端 · Node（`Back-end/Node/`）
 
@@ -68,7 +87,19 @@ Framework/
 ├── Front-end/
 │   ├── React/
 │   ├── Vue/
-│   └── Svelte/
+│   ├── Svelte/
+│   ├── Solid/
+│   ├── Angular/
+│   ├── Qwik/
+│   ├── Preact/
+│   ├── Lit/
+│   ├── Alpine/
+│   ├── Mithril/
+│   ├── Backbone/
+│   ├── Ember/
+│   ├── Stencil/
+│   ├── Aurelia/
+│   └── Fable/
 └── Back-end/
     ├── Node/
     │   ├── Fastify/
@@ -117,7 +148,25 @@ npm install
 npm run dev
 ```
 
-构建、预览与各子项目脚本见对应目录下的说明文档（如 `REACT-Vite-TypeScript.md`、`FASTIFY-Node-TypeScript.md` 等）。
+**Solid**
+
+```powershell
+Set-Location -LiteralPath 'f:\Study\Framework\Front-end\Solid'
+npm install
+npm run dev
+```
+
+**Angular**（Angular CLI，默认端口 `4200`）
+
+```powershell
+Set-Location -LiteralPath 'f:\Study\Framework\Front-end\Angular'
+npm install
+npm start
+```
+
+**Qwik / Preact / Lit / Alpine / Mithril / Backbone / Aurelia**（Vite 或各框架自带 dev）：在对应子目录执行 `npm install` 与 `npm run dev`（或 `npm start`）。**Ember**：`npm start`（`ember serve`）。**Stencil**：`npm start`。**Fable**：需先安装 .NET SDK，再按 [FABLE-DotNet.md](Front-end/Fable/FABLE-DotNet.md) 执行 `dotnet tool restore` 与 `dotnet fable`。
+
+构建、预览与各子项目脚本见对应目录下的说明文档（如 `REACT-Vite-TypeScript.md`、`QWIK-Vite-TypeScript.md`、`FASTIFY-Node-TypeScript.md` 等）。
 
 ### 后端 · Node
 
@@ -155,7 +204,7 @@ go run .
 
 - **产物位置**：`node_modules`、`dist` 等只出现在各前端与 `Back-end/Node` 子目录内；`Back-end/Go` 下各模块在首次 `go mod tidy` 后生成 `go.sum`，`go build` 可在该子目录产出可执行文件。  
 - **文档分层**：本文件只做**总览**；API、目录结构、设计取舍写在各子目录的**按栈命名说明**（如 `VUE-Vite-TypeScript.md`、`NESTJS-Node-TypeScript.md`、`GIN-Go.md`），便于在全局搜索中一眼识别。  
-- **跨栈对照（前端）**：React / Vue / Svelte 示例均为纯前端单页、无强制共用后端；对照时可关注状态与副作用、模板与内置能力（如 Portal / Teleport、Svelte transition 等）及各子项目说明文档中的章节。
+- **跨栈对照（前端）**：各前端示例均为纯前端单页、无强制共用后端；对照时可关注状态与副作用、模板与 JSX、Angular 内置控制流与 **signal** 等，详见各子目录说明文档。
 
 ---
 

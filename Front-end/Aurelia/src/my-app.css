@@ -1,0 +1,81 @@
+:host {
+  display: block;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: #0f1419;
+  color: #e6edf3;
+  min-height: 100vh;
+  margin: 0;
+  padding: 24px 20px 40px;
+  box-sizing: border-box;
+}
+@media (prefers-color-scheme: light) {
+  :host {
+    background: #f4f6f8;
+    color: #0f172a;
+  }
+}
+.shell {
+  max-width: 960px;
+  margin: 0 auto;
+}
+h1 {
+  margin: 0 0 8px;
+  font-size: 1.65rem;
+}
+.muted {
+  color: #8b9cb3;
+  max-width: 44rem;
+}
+.grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-top: 18px;
+}
+.panel {
+  border: 1px solid #2d3a4d;
+  border-radius: 12px;
+  padding: 14px 16px;
+  background: #1a2332;
+}
+@media (prefers-color-scheme: light) {
+  .panel {
+    background: #fff;
+    border-color: #e2e8f0;
+  }
+}
+h2 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  color: #6d28d9;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+button {
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid #2d3a4d;
+  background: #6d28d9;
+  color: #fff;
+  padding: 6px 12px;
+}
+.sec {
+  background: transparent;
+  color: inherit;
+}
+input {
+  max-width: 20rem;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #2d3a4d;
+  background: transparent;
+  color: inherit;
+}
+ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}

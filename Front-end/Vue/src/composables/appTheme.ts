@@ -1,75 +1,53 @@
-import {
-  computed,
-  inject,
-  onMounted,
-  onUnmounted,
-  provide,
-  ref,
-  watch,
-  type ComputedRef,
-  type InjectionKey,
-  type Ref,
-} from 'vue'
+import { ref, watch, provide, inject, type InjectionKey } from 'vue';
 
-export type ThemeMode = 'system' | 'light' | 'dark'
+export type ThemeMode = 'light' | 'dark';
+
+const STORAGE_KEY = 'vue-demo-theme';
+
+function readInitial(): ThemeMode {
+  if (typeof localStorage === 'undefined') return 'light';
+  const s = localStorage.getItem(STORAGE_KEY);
+  if (s === 'dark' || s === 'light') return s;
+  if (
+    typeof window !== 'undefined' &&
+    window.matchMedia('(prefers-color-scheme: dark)').matches
+  )
+    return 'dark';
+  return 'light';
+}
 
 export type AppTheme = {
-  mode: Ref<ThemeMode>
-  resolved: ComputedRef<'light' | 'dark'>
-  setMode: (m: ThemeMode) => void
-}
+  theme: ReturnType<typeof ref<ThemeMode>>;
+  toggle: () => void;
+};
 
-export const appThemeKey: InjectionKey<AppTheme> = Symbol('app-theme')
+const key: InjectionKey<AppTheme> = Symbol('appTheme');
 
-function getSystem(): 'light' | 'dark' {
-  return window.matchMedia('(prefers-color-scheme: dark)').matches
-    ? 'dark'
-    : 'light'
-}
+export function provideAppTheme() {
+  const theme = ref<ThemeMode>(readInitial());
 
-/** 在根组件 setup 中调用一次：订阅系统主题、同步 html[data-theme]、provide 上下文 */
-export function provideAppTheme(): AppTheme {
-  const mode = ref<ThemeMode>('system')
-  const system = ref<'light' | 'dark'>(getSystem())
-
-  const resolved = computed<'light' | 'dark'>(() =>
-    mode.value === 'system'
-      ? system.value
-      : mode.value === 'dark'
-        ? 'dark'
-        : 'light',
-  )
-
-  onMounted(() => {
-    const mq = window.matchMedia('(prefers-color-scheme: dark)')
-    const onChange = () => {
-      system.value = getSystem()
+  const apply = (m: ThemeMode) => {
+    if (typeof document !== 'undefined') {
+      document.documentElement.dataset.theme = m;
+      localStorage.setItem(STORAGE_KEY, m);
     }
-    mq.addEventListener('change', onChange)
-    onUnmounted(() => mq.removeEventListener('change', onChange))
-  })
+  };
 
-  watch(
-    resolved,
-    (r) => {
-      document.documentElement.dataset.theme = r
-    },
-    { immediate: true },
-  )
+  apply(theme.value);
 
-  const setMode = (m: ThemeMode) => {
-    mode.value = m
-  }
+  watch(theme, (m) => apply(m), { flush: 'post' });
 
-  const ctx: AppTheme = { mode, resolved, setMode }
-  provide(appThemeKey, ctx)
-  return ctx
+  const toggle = () => {
+    theme.value = theme.value === 'light' ? 'dark' : 'light';
+  };
+
+  const api: AppTheme = { theme, toggle };
+  provide(key, api);
+  return api;
 }
 
 export function useAppTheme(): AppTheme {
-  const ctx = inject(appThemeKey)
-  if (!ctx) {
-    throw new Error('useAppTheme() 必须在 provideAppTheme() 的子树内调用')
-  }
-  return ctx
+  const v = inject(key);
+  if (!v) throw new Error('useAppTheme() used outside provideAppTheme()');
+  return v;
 }

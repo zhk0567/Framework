@@ -1,0 +1,29 @@
+<div class="ember-shell">
+  <header>
+    <h1>Ember.js 能力展台</h1>
+    <p class="ember-muted">
+      <strong>约定优于配置</strong>：Router、Service、Component 分层；本示例保留 CLI 默认结构，在
+      <code>application</code> 模板中展示静态说明（交互可扩展为 Glimmer 组件）。
+    </p>
+  </header>
+  <ul class="ember-tags">
+    <li>Ember CLI + broccoli</li>
+    <li>Handlebars 模板</li>
+    <li>Octane / Glimmer 组件</li>
+  </ul>
+  <section class="ember-panel">
+    <h2>路由</h2>
+    <p class="ember-muted">当前 <code>Router.map</code> 为空，可在 <code>app/router.js</code> 增加 <code>this.route('demo')</code> 对照其它子项目页面。</p>
+  </section>
+  <section class="ember-panel">
+    <h2>数据层</h2>
+    <p class="ember-muted">可接入 <code>ember-data</code> 或任意请求库；与 Backbone 的 Collection 不同，Ember 推荐统一数据服务。</p>
+  </section>
+  <section class="ember-panel">
+    <h2>Embroider + Vite</h2>
+    <p class="ember-muted">2026 生态向 Vite 迁移中；本目录仍为经典 ember-cli 构建，详见 EMBER-CLI-TypeScript.md。</p>
+  </section>
+  <footer class="ember-foot">详见 EMBER-CLI-TypeScript.md</footer>
+</div>
+
+{{outlet}}

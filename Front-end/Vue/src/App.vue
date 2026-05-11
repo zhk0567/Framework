@@ -1,59 +1,57 @@
 <script setup lang="ts">
-import { provideAppTheme } from './composables/appTheme'
-import BasicsDemo from './components/BasicsDemo.vue'
-import ClockPanel from './components/ClockPanel.vue'
-import ErrorCaptureDemo from './components/ErrorCaptureDemo.vue'
-import HeavyTabsDemo from './components/HeavyTabsDemo.vue'
-import ReactiveFormDemo from './components/ReactiveFormDemo.vue'
-import SlotShowcase from './components/SlotShowcase.vue'
-import TeleportToastDemo from './components/TeleportToastDemo.vue'
-import ThemeSwitcher from './components/ThemeSwitcher.vue'
-import TodoPanel from './components/TodoPanel.vue'
-import WatchSearchDemo from './components/WatchSearchDemo.vue'
-import vueLogo from './assets/vue.svg'
+import { provideAppTheme } from './composables/appTheme';
+import BasicsDemo from './components/BasicsDemo.vue';
+import ClockPanel from './components/ClockPanel.vue';
+import ErrorCaptureDemo from './components/ErrorCaptureDemo.vue';
+import HeavyTabsDemo from './components/HeavyTabsDemo.vue';
+import ReactiveFormDemo from './components/ReactiveFormDemo.vue';
+import SlotShowcase from './components/SlotShowcase.vue';
+import TeleportToastDemo from './components/TeleportToastDemo.vue';
+import ThemeSwitcher from './components/ThemeSwitcher.vue';
+import TodoPanel from './components/TodoPanel.vue';
+import WatchSearchDemo from './components/WatchSearchDemo.vue';
+import vueLogo from './assets/vue.svg';
 
-provideAppTheme()
+provideAppTheme();
 
 const nav = [
-  { href: '#section-features', label: '能力总览' },
-  { href: '#section-basics', label: 'ref / computed' },
-  { href: '#section-clock', label: '生命周期' },
-  { href: '#section-todo', label: '列表与 watch' },
-  { href: '#section-watch', label: '防抖搜索' },
-  { href: '#section-transition', label: 'Transition' },
-  { href: '#section-teleport', label: 'Teleport' },
-  { href: '#section-reactive', label: 'reactive' },
-  { href: '#section-slots', label: '插槽' },
-  { href: '#section-error', label: '错误捕获' },
-] as const
+  { href: '#theme', label: '主题' },
+  { href: '#basics', label: 'ref / computed' },
+  { href: '#clock', label: '生命周期' },
+  { href: '#todo', label: 'v-for / watch' },
+  { href: '#search', label: '防抖' },
+  { href: '#tabs', label: 'Transition' },
+  { href: '#toast', label: 'Teleport' },
+  { href: '#form', label: 'reactive' },
+  { href: '#slots', label: '插槽' },
+  { href: '#error', label: '错误捕获' },
+] as const;
 
 const tags = [
-  'SFC & script setup',
-  'provide / inject',
+  'Vue 3 · script setup',
+  'provide / inject 主题',
   'ref / reactive / computed',
-  'watch 与清理',
-  'v-model / v-if / v-for',
-  'Transition / Teleport',
-  '插槽',
+  'watch 深监听与防抖',
+  'v-model、v-for、Teleport',
+  'Transition mode="out-in"',
   'onErrorCaptured',
-  'onMounted / onUnmounted',
-]
+];
 </script>
 
 <template>
-  <div class="app-shell">
+  <div class="shell">
     <header class="hero">
       <img :src="vueLogo" width="44" height="44" alt="Vue logo" />
       <div class="hero-text">
         <h1>Vue 3 能力展台</h1>
-        <p class="lead">
-          纯前端单页：组合式 API、模板指令与内置组件协同工作；与 React 示例对照阅读更有收获。
+        <p class="lead muted">
+          与仓库内 Svelte / Preact 等子项目一致：<strong>Vite + TypeScript</strong>、纯前端无后端。本页覆盖文档
+          <code>VUE-Vite-TypeScript.md</code> 所列能力点。
         </p>
       </div>
-      <ThemeSwitcher />
     </header>
 
-    <nav class="demo-nav" aria-label="本页章节">
+    <nav class="demo-nav" aria-label="章节">
       <ul>
         <li v-for="item in nav" :key="item.href">
           <a :href="item.href" class="nav-a">{{ item.label }}</a>
@@ -61,134 +59,94 @@ const tags = [
       </ul>
     </nav>
 
-    <section id="section-features" class="feature-block" aria-label="能力标签">
-      <p class="feature-lead">
-        下列模块突出 Vue 与 React 不同的表达方式（如 <code>watch</code> 清理、<code>Teleport</code>、模板过渡等）。
-      </p>
-      <ul class="feature-tags">
+    <section id="features" class="feature-block" aria-label="能力标签">
+      <p class="muted" style="margin: 0 0 6px">下列标签对应本页各面板。</p>
+      <ul class="tag-list">
         <li v-for="t in tags" :key="t">{{ t }}</li>
       </ul>
     </section>
 
-    <main class="demo-grid">
-      <BasicsDemo />
-      <ClockPanel />
-      <TodoPanel />
-      <WatchSearchDemo />
-      <HeavyTabsDemo />
-      <TeleportToastDemo />
-      <ReactiveFormDemo />
-      <SlotShowcase />
-      <ErrorCaptureDemo />
+    <main class="grid">
+      <section id="theme"><ThemeSwitcher /></section>
+      <section id="basics"><BasicsDemo /></section>
+      <section id="clock"><ClockPanel /></section>
+      <section id="todo"><TodoPanel /></section>
+      <section id="search"><WatchSearchDemo /></section>
+      <section id="tabs"><HeavyTabsDemo /></section>
+      <section id="toast"><TeleportToastDemo /></section>
+      <section id="form"><ReactiveFormDemo /></section>
+      <section id="slots"><SlotShowcase /></section>
+      <section id="error"><ErrorCaptureDemo /></section>
     </main>
 
-    <footer class="foot">
-      编辑 <code>src/App.vue</code> 与 <code>src/components/*</code> 体验 Vite HMR；无后端。
+    <footer class="foot muted">
+      编辑 <code>src/App.vue</code> 与 <code>src/components/*</code> 体验 HMR；说明见
+      <code>VUE-Vite-TypeScript.md</code>。
     </footer>
   </div>
 </template>
 
 <style scoped>
-.app-shell {
+.shell {
   padding: 24px 20px 40px;
-  box-sizing: border-box;
+  max-width: 960px;
+  margin: 0 auto;
 }
 
 .hero {
   display: flex;
   flex-wrap: wrap;
+  gap: 16px;
   align-items: flex-start;
-  gap: 16px 20px;
-  justify-content: space-between;
   margin-bottom: 16px;
 }
 
-.hero-text {
-  flex: 1 1 200px;
-  min-width: 0;
+.hero-text h1 {
+  margin: 0;
+  font-size: 1.65rem;
+  letter-spacing: -0.02em;
 }
 
 .lead {
   margin: 8px 0 0;
-  font-size: 15px;
-  line-height: 1.5;
-  color: var(--text);
-  max-width: 40rem;
+  max-width: 44rem;
 }
 
 .demo-nav {
   margin: 0 0 18px;
-  padding: 10px 0;
-  border-block: 1px solid var(--border);
 }
 
 .demo-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 6px 12px;
+  gap: 8px 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .nav-a {
-  font-size: 14px;
   color: var(--accent);
   text-decoration: none;
+  font-size: 0.9rem;
 }
 
 .nav-a:hover {
   text-decoration: underline;
 }
 
-.nav-a:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-}
-
 .feature-block {
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
-.feature-lead {
-  margin: 0 0 10px;
-  font-size: 15px;
-  line-height: 1.45;
-  color: var(--text);
-}
-
-.feature-tags {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.feature-tags li {
-  font-size: 13px;
-  padding: 6px 10px;
-  border-radius: 6px;
-  background: var(--code-bg);
-  color: var(--text-h);
-  border: 1px solid var(--border);
-}
-
-.demo-grid {
+.grid {
   display: grid;
-  gap: 18px;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(min(100%, 300px), 1fr)
-  );
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
 .foot {
-  margin-top: 28px;
-  padding-top: 16px;
-  border-top: 1px solid var(--border);
-  font-size: 14px;
-  color: var(--text);
+  margin-top: 22px;
+  font-size: 0.875rem;
 }
 </style>

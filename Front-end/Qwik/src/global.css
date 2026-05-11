@@ -1,0 +1,118 @@
+:root {
+  color-scheme: dark light;
+  --qw-bg: #0f1419;
+  --qw-card: #1a2332;
+  --qw-accent: #ac37ff;
+  --qw-text: #e6edf3;
+  --qw-muted: #8b9cb3;
+  --qw-border: #2d3a4d;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --qw-bg: #f4f6f8;
+    --qw-card: #fff;
+    --qw-text: #0f172a;
+    --qw-muted: #64748b;
+    --qw-border: #e2e8f0;
+  }
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--qw-bg);
+  color: var(--qw-text);
+}
+.qw-shell {
+  padding: 24px 20px 40px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.qw-shell h1 {
+  margin: 0 0 8px;
+  font-size: 1.65rem;
+}
+.qw-lead {
+  margin: 0;
+  max-width: 44rem;
+  color: var(--qw-muted);
+  font-size: 0.95rem;
+}
+.qw-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 0;
+}
+.qw-tags li {
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--qw-border);
+  color: var(--qw-muted);
+}
+.qw-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-top: 18px;
+}
+.qw-panel {
+  border: 1px solid var(--qw-border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  background: var(--qw-card);
+}
+.qw-panel h2 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  color: var(--qw-accent);
+}
+.qw-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.qw-muted {
+  color: var(--qw-muted);
+  font-size: 0.875rem;
+}
+.qw-mono {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+.qw-shell button {
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid var(--qw-border);
+  background: var(--qw-accent);
+  color: #fff;
+  padding: 6px 12px;
+}
+.qw-secondary {
+  background: transparent !important;
+  color: var(--qw-text) !important;
+}
+.qw-shell input {
+  max-width: 20rem;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--qw-border);
+  background: transparent;
+  color: inherit;
+}
+.qw-foot {
+  margin-top: 22px;
+  font-size: 0.875rem;
+  color: var(--qw-muted);
+}
+.qw-shell code {
+  font-size: 0.9em;
+  padding: 0.1em 0.35em;
+  border-radius: 6px;
+  background: rgba(172, 55, 255, 0.12);
+  color: var(--qw-accent);
+}

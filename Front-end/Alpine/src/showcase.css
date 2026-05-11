@@ -1,0 +1,85 @@
+:root {
+  color-scheme: dark light;
+  --bg: #0f1419;
+  --card: #1a2332;
+  --accent: #77c1d2;
+  --text: #e6edf3;
+  --muted: #8b9cb3;
+  --border: #2d3a4d;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f4f6f8;
+    --card: #fff;
+    --text: #0f172a;
+    --muted: #64748b;
+    --border: #e2e8f0;
+  }
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+}
+.shell {
+  padding: 24px 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+h1 {
+  margin: 0 0 8px;
+  font-size: 1.65rem;
+}
+.panel {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  background: var(--card);
+  margin-bottom: 12px;
+}
+h2 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  color: var(--accent);
+}
+.muted {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+button {
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--accent);
+  color: #0f1419;
+  padding: 6px 12px;
+  font-weight: 600;
+}
+button.secondary {
+  background: transparent;
+  color: var(--text);
+  font-weight: 400;
+}
+input {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: inherit;
+  max-width: 20rem;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+code {
+  font-size: 0.9em;
+  padding: 0.1em 0.35em;
+  border-radius: 6px;
+  background: rgba(119, 193, 210, 0.15);
+  color: var(--accent);
+}
