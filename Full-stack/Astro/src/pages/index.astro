@@ -1,0 +1,29 @@
+---
+import { demoPayload } from '../lib/demo-payload';
+
+const payload = demoPayload();
+---
+
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro 全栈展台</title>
+  </head>
+  <body>
+    <main style="max-width:720px;margin:0 auto;padding:2rem 1.25rem;font-family:system-ui,sans-serif">
+      <h1>Astro 全栈展台</h1>
+      <p style="color:#64748b">
+        静态构建时与 <code>/api/demo</code> 共用 <code>src/lib/demo-payload.ts</code>，避免 prerender 阶段
+        <code>fetch</code> 失败；开发态仍可直接请求 <code>GET /api/demo</code>。端口 <strong>3034</strong>。
+      </p>
+      <pre
+        style="margin-top:1rem;padding:1rem;border-radius:8px;background:#0f172a;color:#e2e8f0;overflow:auto;font-size:0.85rem"
+        >{JSON.stringify(payload, null, 2)}</pre
+      >
+    </main>
+  </body>
+</html>
