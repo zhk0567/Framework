@@ -1,0 +1,20 @@
+{
+  "name": "framework-back-end-serverless-adapters-guide",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Vercel Serverless / AWS Lambda 适配：本仓库用 Node http 对齐形态；详见 SERVERLESS-ADAPTERS-Node-TypeScript.md",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "tsx src/server.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

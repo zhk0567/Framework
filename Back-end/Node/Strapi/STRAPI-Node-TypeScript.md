@@ -13,7 +13,7 @@
 
 ## 为何不是「完整 Strapi」
 
-**Strapi** 作为无头 CMS，默认包含 **管理后台、数据库、迁移、插件与构建管线**，`node_modules` 体量与首次安装时间远大于本仓库其它对照示例。为在 [FRAMEWORK-GAP-LIST.md](../../../FRAMEWORK-GAP-LIST.md) 第五节仍能对上「名字 + 端口 + `/api/health`」，本目录用 **Node 内置 `http`** 提供最小 **`GET /api/health`**、**`GET /api/info`** 与 **`/` 呈现页**。
+**Strapi** 作为无头 CMS，默认包含 **管理后台、数据库、迁移、插件与构建管线**，`node_modules` 体量与首次安装时间远大于本仓库其它对照示例。为与本仓库 **Node 对照后端** 在「名称可见 + 端口 + **`/api/health`**」上对齐，本目录用 **Node 内置 `http`** 提供最小 **`GET /api/health`**、**`GET /api/info`** 与 **`/` 呈现页**。
 
 ## 环境要求
 

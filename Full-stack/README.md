@@ -11,8 +11,9 @@
 | [Astro](./Astro) | http://127.0.0.1:3034/ | [ASTRO-FullStack-TypeScript.md](./Astro/ASTRO-FullStack-TypeScript.md) |
 | [Analog](./Analog) | http://127.0.0.1:3035/ | [ANALOG-FullStack-TypeScript.md](./Analog/ANALOG-FullStack-TypeScript.md) |
 | [Blitz](./Blitz) | http://127.0.0.1:3036/ | [BLITZ-FullStack-TypeScript.md](./Blitz/BLITZ-FullStack-TypeScript.md) |
+| [RedwoodJS](./RedwoodJS) | http://127.0.0.1:3037/（`tsx` 占位 `http`） | [REDWOOD-FullStack-TypeScript.md](./RedwoodJS/REDWOOD-FullStack-TypeScript.md) |
 | [tanstack-start](./tanstack-start) | http://127.0.0.1:3038/ | [TANSTACK-FullStack-TypeScript.md](./tanstack-start/TANSTACK-FullStack-TypeScript.md) |
 
-**RedwoodJS**：官方脚手架对 **Node 20.x（小于 21）** 与 **yarn** 有强约束且为交互式多包结构，本目录未内置生成树；说明见根目录 [FRAMEWORK-GAP-LIST.md](../FRAMEWORK-GAP-LIST.md) 第一节。
+**RedwoodJS（完整脚手架）**：官方 **`yarn create redwood-app`** 要求 **Node 20.x（小于 21）**、**yarn** 与交互式向导，生成 **web + api** 多包等；本仓库在 **[RedwoodJS](./RedwoodJS)** 子目录仅提供 **同源 `/api/*` 形态占位** 与文档链，不提交该生成树。根目录 [FRAMEWORK-GAP-LIST.md](../FRAMEWORK-GAP-LIST.md) 第一节为索引说明。
 
 各子目录内执行 `npm install`；**不要在仓库根目录** `npm install`。

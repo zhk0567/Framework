@@ -1,0 +1,26 @@
+{
+  "name": "framework-back-end-graphql",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Fastify + Mercurius：GraphQL + REST /api 对齐",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "tsx src/server.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@fastify/cors": "^10.0.1",
+    "@fastify/static": "^8.0.3",
+    "fastify": "^4.28.1",
+    "mercurius": "^15.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

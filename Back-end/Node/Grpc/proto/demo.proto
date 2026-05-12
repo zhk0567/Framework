@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package api.v1;
+
+option go_package = "github.com/example/framework/api/v1;apiv1";
+
+service Demo {
+  rpc Health(Empty) returns (HealthReply);
+  rpc Info(Empty) returns (InfoReply);
+}
+
+message Empty {}
+
+message HealthReply {
+  bool ok = 1;
+  string service = 2;
+}
+
+message Highlight {
+  string title = 1;
+  string detail = 2;
+}
+
+message InfoReply {
+  string message = 1;
+  repeated Highlight highlights = 2;
+}

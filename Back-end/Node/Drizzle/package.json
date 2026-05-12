@@ -1,0 +1,28 @@
+{
+  "name": "framework-back-end-drizzle",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Fastify + Drizzle ORM（sql.js / SQLite WASM，无原生编译）+ REST /api 对齐",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "tsx src/server.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@fastify/cors": "^10.0.1",
+    "@fastify/static": "^8.0.3",
+    "drizzle-orm": "^0.38.3",
+    "fastify": "^5.2.1",
+    "sql.js": "^1.12.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "@types/sql.js": "^1.4.9",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
