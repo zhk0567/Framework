@@ -1,0 +1,20 @@
+{
+  "name": "framework-back-end-keystone-guide",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Keystone：本仓库用 Node http 对齐 /api 形态；完整 CMS 见 KEYSTONE-Node-TypeScript.md",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "tsx src/server.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

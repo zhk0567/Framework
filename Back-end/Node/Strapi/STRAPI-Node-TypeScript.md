@@ -37,6 +37,8 @@ npx create-strapi-app@latest my-strapi
 
 创建完成后，可将 **内容类型 API、权限策略、生命周期钩子** 与本仓库 `Back-end/Node/NestJS`（模块化 + DTO）或 `Back-end/Node/Fastify`（插件 + Schema）对照。
 
+同主题下本仓库另有 **Medusa（3115）**、**Payload（3116）**、**Keystone（3117）** 与 **Directus（3017）** 的 **Node `http` 占位**，便于与无头电商 / Headless CMS 名称并排对照。
+
 ## 端口
 
 默认 **3016**；汇总见根目录 [README.md](../../../README.md)。

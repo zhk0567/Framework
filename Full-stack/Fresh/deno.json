@@ -1,0 +1,12 @@
+{
+  "name": "framework-full-stack-fresh-guide",
+  "version": "1.0.0",
+  "private": true,
+  "tasks": {
+    "dev": "deno run -A --watch=src/main.ts src/main.ts",
+    "start": "deno run -A src/main.ts"
+  },
+  "compilerOptions": {
+    "strict": true
+  }
+}

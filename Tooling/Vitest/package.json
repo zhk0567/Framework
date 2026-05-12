@@ -1,0 +1,21 @@
+{
+  "name": "framework-tooling-vitest-demo",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Vitest：Vite 原生单测最小可运行例（无 HTTP 呈现页）",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "typescript": "^5.7.2",
+    "vite": "^5.4.11",
+    "vitest": "^2.1.8"
+  }
+}

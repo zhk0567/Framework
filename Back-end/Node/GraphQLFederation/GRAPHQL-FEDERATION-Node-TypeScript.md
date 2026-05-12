@@ -11,6 +11,8 @@
 
 官方参考：[GraphQL Tools · Stitching](https://the-guild.dev/graphql/stitching)、[Apollo Federation](https://www.apollographql.com/docs/federation/)。
 
+**加深（Router / Fed v2）**：[`Back-end/Node/ApolloRouter`](../ApolloRouter)（默认 **3123**）为 **Apollo Router** 与 **Federation v2** 官方文档链占位，与本目录 **stitch** 单进程合并对照阅读。
+
 ## 示例查询
 
 在 **GraphiQL**（`/graphiql`）中试：

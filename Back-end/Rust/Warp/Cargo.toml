@@ -1,0 +1,10 @@
+[package]
+name = "framework_warp_guide"
+version = "0.1.0"
+edition = "2021"
+description = "warp 最小 HTTP 示例；与 Axum / actix-web / Rocket 并排"
+
+[dependencies]
+serde_json = "1"
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "net"] }
+warp = "0.3"

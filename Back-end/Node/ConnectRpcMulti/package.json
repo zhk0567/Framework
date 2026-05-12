@@ -1,0 +1,32 @@
+{
+  "name": "framework-back-end-connect-rpc-multi",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Fastify + Connect（Buf）双服务 Unary + buf breaking 文档",
+  "type": "module",
+  "scripts": {
+    "generate": "buf generate",
+    "breaking": "buf breaking --against '.git#branch=main'",
+    "dev": "tsx watch src/server.ts",
+    "start": "tsx src/server.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@bufbuild/protobuf": "^1.10.0",
+    "@connectrpc/connect": "^1.6.1",
+    "@connectrpc/connect-fastify": "^1.6.1",
+    "@connectrpc/connect-node": "^1.6.1",
+    "@fastify/cors": "^9.0.1",
+    "@fastify/static": "^7.0.4",
+    "fastify": "^4.28.1"
+  },
+  "devDependencies": {
+    "@bufbuild/buf": "^1.47.2",
+    "@types/node": "^22.10.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

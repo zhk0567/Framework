@@ -1,3 +1,6 @@
+# Local scratch (API / version probes)
+_tmp-mikro/
+
 # OS / editor
 Thumbs.db
 Desktop.ini

@@ -25,6 +25,8 @@ Invoke-RestMethod -Uri 'http://127.0.0.1:3108/framework.greet.v1.GreetService/Sa
 - **Node Grpc** 子工程：`@grpc/grpc-js` + 独立 **30900** 端口。  
 - **Connect**：同一类 IDL（Protobuf）上，简化 **HTTP** 映射与浏览器友好路径；生产可与 **Envoy**、**gRPC-Web** 组合，详见 [Connect 文档](https://connectrpc.com/docs) 与 [Buf](https://buf.build/docs)。
 
+**加深（多服务 + buf breaking）**：[`Back-end/Node/ConnectRpcMulti`](../ConnectRpcMulti)（默认 **3125**）在同一 Fastify 上挂载 **GreetService + EchoService**，并附 **`buf breaking`** 与 CI 思路说明。
+
 ## PHP Eloquent
 
 **Laravel** 子工程已覆盖 **Eloquent** 叙事；若需「仅 ORM + 薄 API」，可在空目录 `composer create-project` 后对照本目录的 **`/api/*` JSON 形状**。

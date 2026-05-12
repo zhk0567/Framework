@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package framework.echo.v1;
+
+message PingRequest {
+  string token = 1;
+}
+
+message PingResponse {
+  string pong = 1;
+}
+
+service EchoService {
+  rpc Ping(PingRequest) returns (PingResponse);
+}

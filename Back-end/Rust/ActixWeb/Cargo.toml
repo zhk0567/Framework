@@ -1,0 +1,9 @@
+[package]
+name = "framework_actix_web_guide"
+version = "0.1.0"
+edition = "2021"
+description = "actix-web 最小 HTTP 示例；与 Axum / Rocket / Warp 并排"
+
+[dependencies]
+actix-web = "4"
+serde_json = "1"

@@ -26,7 +26,7 @@ app.get('/api/info', async (_req, reply) => {
     message: 'TypeORM：Decorator 实体、DataSource、Active Record / Repository 模式',
     doc: 'https://typeorm.io/',
     highlights: [
-      { title: '其它 Node ORM', detail: 'Sequelize、MikroORM 等未单独建目录，可与此处 Repository 用法对照。' },
+      { title: '其它 Node ORM', detail: 'Sequelize、MikroORM 见 Back-end/Node/Sequelize、MikroORM。' },
       { title: 'SQLite', detail: '开发态 synchronize: true；生产请用迁移。' },
     ],
   });

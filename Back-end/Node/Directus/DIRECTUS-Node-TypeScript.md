@@ -37,6 +37,8 @@ npm create directus-project@latest my-directus
 
 完成后可将 **集合（Collection）与字段、角色策略、扩展钩子** 与 `Back-end/Node/NestJS` 的模块边界对照。
 
+同主题下本仓库另有 **Strapi（3016）**、**Medusa（3115）**、**Payload（3116）**、**Keystone（3117）** 的 **Node `http` 占位**。
+
 ## 端口
 
 默认 **3017**；汇总见根目录 [README.md](../../../README.md)。

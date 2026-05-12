@@ -5,6 +5,7 @@
 | 子目录 | 技术 | 默认端口 | 构建 |
 |--------|------|----------|------|
 | [Spring-Boot](Spring-Boot) | Spring Boot 3 · Web MVC | **3070** | Maven |
+| [WebFlux](WebFlux) | Spring Boot 3 · WebFlux · RouterFunction | **3076** | Maven |
 | [Quarkus](Quarkus) | Quarkus 3 · JAX-RS | **3071** | Maven |
 | [Micronaut](Micronaut) | Micronaut 4 · HTTP Server | **3072** | Maven |
 | [Vertx](Vertx) | Vert.x 4 · Web Router | **3073** | Maven |

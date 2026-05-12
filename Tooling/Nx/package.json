@@ -1,0 +1,20 @@
+{
+  "name": "framework-tooling-nx-guide",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Nx：本仓库用 Node http 对齐呈现页；完整 Monorepo 见 NX-Tooling-TypeScript.md",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "tsx src/server.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

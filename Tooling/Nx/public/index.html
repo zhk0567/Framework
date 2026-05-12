@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nx 说明 — 呈现页</title>
+    <style>
+      :root {
+        color-scheme: dark light;
+        --bg: #0f1419;
+        --card: #1a2332;
+        --accent: #0284c7;
+        --text: #e6edf3;
+        --muted: #8b9cb3;
+        --border: #2d3a4d;
+        font-family: "Segoe UI", system-ui, sans-serif;
+      }
+      @media (prefers-color-scheme: light) {
+        :root {
+          --bg: #f4f6f8;
+          --card: #fff;
+          --text: #0f172a;
+          --muted: #64748b;
+          --border: #e2e8f0;
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.55;
+      }
+      main {
+        max-width: 52rem;
+        margin: 0 auto;
+        padding: 2rem 1.25rem 3rem;
+      }
+      h1 {
+        font-size: 1.65rem;
+        font-weight: 700;
+        margin: 0 0 0.35rem;
+      }
+      .sub {
+        color: var(--muted);
+        font-size: 0.95rem;
+        margin-bottom: 1.75rem;
+      }
+      section {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1.1rem 1.25rem;
+        margin-bottom: 1rem;
+      }
+      section h2 {
+        font-size: 1rem;
+        margin: 0 0 0.65rem;
+        color: var(--accent);
+      }
+      pre {
+        margin: 0;
+        padding: 0.85rem 1rem;
+        background: rgba(0, 0, 0, 0.25);
+        border-radius: 8px;
+        overflow-x: auto;
+        font-size: 0.78rem;
+        line-height: 1.45;
+      }
+      @media (prefers-color-scheme: light) {
+        pre {
+          background: #f1f5f9;
+        }
+      }
+      button {
+        cursor: pointer;
+        border: 1px solid var(--border);
+        background: var(--accent);
+        color: #fff;
+        padding: 0.45rem 0.85rem;
+        border-radius: 8px;
+        font-size: 0.875rem;
+      }
+      .pill {
+        display: inline-block;
+        font-size: 0.75rem;
+        padding: 0.15rem 0.45rem;
+        border-radius: 999px;
+        background: rgba(2, 132, 199, 0.15);
+        color: var(--accent);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Nx（形态对齐占位）</h1>
+      <p class="sub">
+        Monorepo 任务图与缓存；完整工作区请用官方 CLI（本占位默认端口 <strong>3120</strong>）。
+        <span class="pill">Tooling</span>
+      </p>
+      <section>
+        <h2><code>GET /api/health</code></h2>
+        <button type="button" id="btn-health">请求</button>
+        <pre id="out-health">（点击请求）</pre>
+      </section>
+      <section>
+        <h2><code>GET /api/info</code></h2>
+        <button type="button" id="btn-info">请求</button>
+        <pre id="out-info">（点击请求）</pre>
+      </section>
+    </main>
+    <script>
+      const $ = (id) => document.getElementById(id);
+      async function fetchJson(path) {
+        const res = await fetch(path);
+        const text = await res.text();
+        let body;
+        try {
+          body = JSON.parse(text);
+        } catch {
+          body = text;
+        }
+        return { ok: res.ok, status: res.status, body };
+      }
+      $("btn-health").addEventListener("click", async () => {
+        const el = $("out-health");
+        el.textContent = "加载中…";
+        el.textContent = JSON.stringify(await fetchJson("/api/health"), null, 2);
+      });
+      $("btn-info").addEventListener("click", async () => {
+        const el = $("out-info");
+        el.textContent = "加载中…";
+        el.textContent = JSON.stringify(await fetchJson("/api/info"), null, 2);
+      });
+    </script>
+  </body>
+</html>

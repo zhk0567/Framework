@@ -34,3 +34,5 @@ grpcurl -plaintext -import-path .\proto -proto demo.proto 127.0.0.1:30900 api.v1
 
 - **Connect（Buf）**：Connect 可在 **同一端口** 提供 **gRPC、gRPC-web、Connect JSON**；本目录为 **原生 gRPC 独立端口** 最小 Unary。  
 - **Go OapiCodegen**：对照 **HTTP OpenAPI** 与 **IDL + 二进制 RPC** 的交付形态。
+
+**加深（gRPC-Web + Envoy）**：[`Back-end/Node/GrpcWeb`](../GrpcWeb)（默认 **3124**）为浏览器经 **Envoy grpc_web** 转标准 gRPC 的文档链占位，与本目录 Node Unary 对照。

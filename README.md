@@ -2,27 +2,29 @@
 
 ## 这是一个怎样的项目
 
-**Framework** 是一份**多技术栈对照学习用的样板仓库**（sample / playground）：把主流与若干扩展方向上的**前端**、**全栈**以及 **Node / Go / JVM / DotNet / PHP / Python / Ruby** 后端，并含 **Rust、Elixir、Deno、Scala、Clojure** 等「系统级 / 函数式 / 面试常见名」最小样例，各自做成**可单独克隆后就能跑**的最小工程，集中放在一个仓库里，方便你**并排阅读、改同一类需求、对照语法与工具链**——例如「列表 + 请求 + 本地状态」在前端各子目录里长什么样，或在不同 Go 框架里如何挂同一路由形态。
+**Framework** 是一份**多技术栈对照学习用的样板仓库**（sample / playground）：把主流与若干扩展方向上的**前端**、**全栈**、**Node / Go / JVM / DotNet / PHP / Python / Ruby** 后端，并含 **Rust、Elixir、Deno、Scala、Clojure** 等「系统级 / 函数式 / 面试常见名」最小样例，以及 **[`Tooling/`](Tooling)** 下 **Monorepo / 单测 / E2E** 工具链示例子目录，各自做成**可单独克隆后就能跑**的最小工程，集中放在一个仓库里，方便你**并排阅读、改同一类需求、对照语法与工具链**——例如「列表 + 请求 + 本地状态」在前端各子目录里长什么样，或在不同 Go 框架里如何挂同一路由形态。
 
 **它适合用来**：技术选型前的**亲手试错**、面试/教学前的**快速复习**、从 0 复制某一栈时的**最小可运行起点**、以及和根目录 [FRAMEWORK-GAP-LIST.md](FRAMEWORK-GAP-LIST.md) 对照，了解「常见但本仓库未收录」的名字。
 
-**它刻意不做成**：一个绑在一起的单体产品、一套统一的业务领域模型、或强制共享 UI/业务代码的 monorepo。**各子目录彼此独立**：依赖只装在**该子目录**内；**不要在仓库根目录执行 `npm install`**（根目录不设 Node 工程）。
+**它刻意不做成**：一个绑在一起的单体产品、一套统一的业务领域模型、或强制共享 UI/业务代码的 monorepo。**各子目录彼此独立**：依赖只装在**该子目录**内；**不要在仓库根目录执行 `npm install`**（根目录不设 Node 工程）。**[`Tooling/`](Tooling)** 下各工具链目录同样独立，与 **Nx / Turborepo** 常见「单仓 workspace」模式对照阅读即可，无需把本仓库改成 monorepo。
 
-**内容大致分三类**：
+**内容大致分四类**：
 
 | 类别 | 路径 | 你在里面会看到什么 |
 |------|------|----------------------|
-| **前端** | [`Front-end/`](Front-end) | 多数为 **Vite + TypeScript**（或框架官方 CLI）下的单页 **「能力展台」**；另含 **跨端 / 非浏览器为主**（Electron、Tauri、Expo 等）与 **微软 / WASM UI**（**Blazor WebAssembly / Blazor Server**）等，见下表与各目录说明。**Stencil** 走自身编译器；**Fable / Blazor / .NET MAUI** 等需 **.NET SDK**；**Flutter**、**Rust（Tauri）**、**Deno（Oak 在后端目录）** 等见各子目录。 |
-| **全栈** | [`Full-stack/`](Full-stack) | **路由 + 页面 + 同源 API**（或开发态等价能力）的小示例，与纯 Vite SPA 对照；**RedwoodJS** 另有 [`Full-stack/RedwoodJS`](Full-stack/RedwoodJS) 形态占位（`tsx`）与官方 CLI 说明；端口与汇总见 [`Full-stack/README.md`](Full-stack/README.md)。 |
-| **后端** | [`Back-end/`](Back-end) | [`Back-end/Node/`](Back-end/Node) 为 **Fastify、NestJS** 及 **Express、Koa、Hapi、Restify、AdonisJS（占位）、Strapi（占位）、Directus（占位）、Hono、Elysia（Bun）** 与 **GraphQL（Mercurius）、GraphQL 多子图 stitch、Connect（Buf）Unary、tRPC、gRPC（Node Unary + REST 双端口）、OpenAPI Generator（占位）、Prisma（SQLite）、Drizzle（sql.js）、TypeORM（sql.js）**，以及 **Supabase Edge（占位 + Deno/CLI 说明）、Firebase Cloud Functions（占位 + Emulator 说明）、Vercel/AWS Serverless 适配形态（占位 + 文档链）**；[`Back-end/Go/`](Back-end/Go) 为 **Gin、Fiber、Echo、chi、Beego、Iris、go-zero、Kratos、go-kit** 与 **标准库 net/http、gorilla/mux、GoFrame**，以及 **Buffalo / Revel（`net/http` 占位 + CLI 说明）**、**OpenAPI/oapi-codegen（`openapi.yaml` + 手写服务）**、**go-swagger（`net/http` 占位 + CLI 说明）**；[`Back-end/JVM/`](Back-end/JVM) 为 **Spring Boot、Quarkus、Micronaut、Vert.x、Ktor（Kotlin）** 与 **Play（`HttpServer` 占位 + sbt 说明）**；[`Back-end/DotNet/`](Back-end/DotNet) 为 **ASP.NET Core（Minimal API）**；[`Back-end/PHP/`](Back-end/PHP) 为 **Laravel、Symfony（PHP 内置路由对齐 + 官方 CLI 说明）**；[`Back-end/Python/`](Back-end/Python) 为 **FastAPI、Flask、Django、SQLAlchemy（薄 API + SQLite）**；[`Back-end/Ruby/`](Back-end/Ruby) 为 **Rails、Hanami（Rack 对齐 + 官方 CLI 说明）**；[`Back-end/Rust/`](Back-end/Rust) 为 **Axum（可编译最小 HTTP；文档链 actix-web / Rocket / Warp）**；[`Back-end/Elixir/`](Back-end/Elixir) 为 **Phoenix 形态（Plug + Bandit + `mix phx.new` 说明）**；[`Back-end/Deno/`](Back-end/Deno) 为 **Oak**；[`Back-end/Scala/`](Back-end/Scala) 为 **http4s Ember（文档链 Finch）**；[`Back-end/Clojure/`](Back-end/Clojure) 为 **Pedestal 形态（Ring + Jetty + Pedestal 说明）**；各子工程在 **HTTP/JSON**（如 `/api/*`）形态上对齐，便于对照中间件、路由注册与响应结构。 |
+| **前端** | [`Front-end/`](Front-end) | 多数为 **Vite + TypeScript**（或框架官方 CLI）下的单页 **「能力展台」**；另含 **Vike（Vite 上 SSR/文件路由）**、**跨端 / 非浏览器为主**（Electron、Tauri、Expo 等）与 **微软 / WASM UI**（**Blazor WebAssembly / Blazor Server**）等，见下表与各目录说明。**Stencil** 走自身编译器；**Fable / Blazor / .NET MAUI** 等需 **.NET SDK**；**Flutter**、**Rust（Tauri）**、**Deno（Oak 在后端目录）** 等见各子目录。 |
+| **全栈** | [`Full-stack/`](Full-stack) | **路由 + 页面 + 同源 API**（或开发态等价能力）的小示例，与纯 Vite SPA 对照；**RedwoodJS、SolidStart、Gatsby、Waku、ShopifyHydrogen** 另有 **Node `http` + `tsx` 形态占位** 与官方 CLI 说明；**Fresh** 为 **Deno `deno task`** 占位；端口与汇总见 [`Full-stack/README.md`](Full-stack/README.md)。 |
+| **后端** | [`Back-end/`](Back-end) | [`Back-end/Node/`](Back-end/Node) 为 **Fastify、NestJS** 及 **Express、Koa、Hapi、Restify、AdonisJS（占位）、Strapi（占位）、Directus（占位）、Medusa（无头电商占位）、Payload（Headless CMS 占位）、Keystone（Headless CMS 占位）、Hono、Elysia（Bun）** 与 **GraphQL（Mercurius）、GraphQL 多子图 stitch、Apollo Router / Fed v2（文档占位）、Connect（Buf）Unary 与多服务、tRPC、gRPC（Node Unary + REST 双端口）与 gRPC-Web / Envoy（文档占位）、OpenAPI Generator（占位）、Prisma（SQLite）、Drizzle（sql.js）、TypeORM（sql.js）、Sequelize（pg-mem）、MikroORM（LibSQL 内存）**，以及 **Supabase Edge（占位 + Deno/CLI 说明）、Firebase Cloud Functions（占位 + Emulator 说明）、Vercel/AWS Serverless 适配形态（占位 + 文档链）**；[`Back-end/Go/`](Back-end/Go) 为 **Gin、Fiber、Echo、chi、Beego、Iris、go-zero、Kratos、go-kit** 与 **标准库 net/http、gorilla/mux、GoFrame**，以及 **Buffalo / Revel（`net/http` 占位 + CLI 说明）**、**OpenAPI/oapi-codegen（`openapi.yaml` + 手写服务）**、**go-swagger（`net/http` 占位 + CLI 说明）**；[`Back-end/JVM/`](Back-end/JVM) 为 **Spring Boot、Spring WebFlux、Quarkus、Micronaut、Vert.x、Ktor（Kotlin）** 与 **Play（`HttpServer` 占位 + sbt 说明）**；[`Back-end/DotNet/`](Back-end/DotNet) 为 **ASP.NET Core（Minimal API）**；[`Back-end/PHP/`](Back-end/PHP) 为 **Laravel、Symfony（PHP 内置路由对齐 + 官方 CLI 说明）**；[`Back-end/Python/`](Back-end/Python) 为 **FastAPI、Flask、Django、SQLAlchemy（薄 API + SQLite）**；[`Back-end/Ruby/`](Back-end/Ruby) 为 **Rails、Hanami（Rack 对齐 + 官方 CLI 说明）**；[`Back-end/Rust/`](Back-end/Rust) 为 **Axum、actix-web、Rocket、warp**（各 `cargo` 最小 HTTP）；[`Back-end/Elixir/`](Back-end/Elixir) 为 **Phoenix 形态（Plug + Bandit + `mix phx.new` 说明）**；[`Back-end/Deno/`](Back-end/Deno) 为 **Oak**；[`Back-end/Scala/`](Back-end/Scala) 为 **http4s Ember（文档链 Finch）**；[`Back-end/Clojure/`](Back-end/Clojure) 为 **Pedestal 形态（Ring + Jetty + Pedestal 说明）**；各子工程在 **HTTP/JSON**（如 `/api/*`）形态上对齐，便于对照中间件、路由注册与响应结构。 |
+| **工具链** | [`Tooling/`](Tooling) | **Nx、Turborepo、Playwright** 为 **Node `http` + `tsx` 占位**（默认 **3120–3122**）与官方 CLI 文档链；**Vitest** 为 **Vite + Vitest** 最小 **`npm test`** 示例（无 HTTP 端口）。汇总见 [`Tooling/README.md`](Tooling/README.md)。 |
 
-**规模一览**：**34** 个前端 + **9** 个全栈 + **59** 个后端（[`Back-end/Node`](Back-end/Node) **23**、[`Back-end/Go`](Back-end/Go) **16**、[`Back-end/JVM`](Back-end/JVM) **6**、[`Back-end/DotNet`](Back-end/DotNet) **1**、[`Back-end/PHP`](Back-end/PHP) **2**、[`Back-end/Python`](Back-end/Python) **4**、[`Back-end/Ruby`](Back-end/Ruby) **2**、[`Back-end/Rust`](Back-end/Rust) **1**、[`Back-end/Elixir`](Back-end/Elixir) **1**、[`Back-end/Deno`](Back-end/Deno) **1**、[`Back-end/Scala`](Back-end/Scala) **1**、[`Back-end/Clojure`](Back-end/Clojure) **1**），共 **102** 个可独立运行的子工程。
+**规模一览**：**35** 个前端 + **14** 个全栈 + **71** 个后端（[`Back-end/Node`](Back-end/Node) **31**、[`Back-end/Go`](Back-end/Go) **16**、[`Back-end/JVM`](Back-end/JVM) **7**、[`Back-end/DotNet`](Back-end/DotNet) **1**、[`Back-end/PHP`](Back-end/PHP) **2**、[`Back-end/Python`](Back-end/Python) **4**、[`Back-end/Ruby`](Back-end/Ruby) **2**、[`Back-end/Rust`](Back-end/Rust) **4**、[`Back-end/Elixir`](Back-end/Elixir) **1**、[`Back-end/Deno`](Back-end/Deno) **1**、[`Back-end/Scala`](Back-end/Scala) **1**、[`Back-end/Clojure`](Back-end/Clojure) **1**）+ **4** 个工具链（[`Tooling/`](Tooling)：**Nx、Turborepo、Vitest、Playwright**），共 **124** 个可独立运行的子工程。
 
 **目录约定（检索用）**
 
-- **前端**：[`Front-end/<框架名>/`](Front-end) — 主流 **React / Vue / Svelte / Solid**（Vite）、**Angular**（CLI），及 **Qwik、Preact、Lit、Alpine、Mithril、Backbone、Ember、Stencil、Aurelia、Fable**，以及 **Inferno、Riot、Marko、Million、htmx、Unpoly、Turbo（Hotwire）、原生 Web Components**；跨端 / 壳层含 **Electron、Tauri、Expo、React-Native（Web 宿主）、Ionic、Capacitor、Flutter、.NET MAUI（说明 + 生成指引）、Kotlin Mobile（KMM 源码片段）**；微软 / WASM 含 **Blazor WebAssembly、Blazor Server**。  
-- **全栈**：[`Full-stack/<名称>/`](Full-stack) — **Next.js、Nuxt、SvelteKit、Remix（React Router 7 模板）、Astro、Analog、Blitz（Next 占位）、TanStack Router 脚手架、RedwoodJS（Node `http` 占位 + `yarn create` 说明）** 等；清单与端口见 [`Full-stack/README.md`](Full-stack/README.md)。  
-- **后端**：[`Back-end/Node/`](Back-end/Node)（npm 栈，含 **GraphQL / tRPC / gRPC / Prisma / OpenAPI Generator** 等）、[`Back-end/Go/`](Back-end/Go)（各 `go.mod` 模块）、[`Back-end/JVM/`](Back-end/JVM)（Maven + JDK 17+，Ktor 为 Kotlin 源码）、[`Back-end/DotNet/`](Back-end/DotNet)（**.NET 9**）、[`Back-end/PHP/`](Back-end/PHP)（**PHP 内置服务器**）、[`Back-end/Python/`](Back-end/Python)（**pip / venv**）、[`Back-end/Ruby/`](Back-end/Ruby)（**Bundler + Rack**）、[`Back-end/Rust/`](Back-end/Rust)（**cargo**）、[`Back-end/Elixir/`](Back-end/Elixir)（**mix**）、[`Back-end/Deno/`](Back-end/Deno)（**deno task**）、[`Back-end/Scala/`](Back-end/Scala)（**sbt**）、[`Back-end/Clojure/`](Back-end/Clojure)（**Clojure CLI + deps.edn**）— 与前端子工程**无强制依赖关系**，可单独运行、单独对照。
+- **前端**：[`Front-end/<框架名>/`](Front-end) — 主流 **React / Vue / Svelte / Solid**（Vite）、**Angular**（CLI），及 **Qwik、Preact、Lit、Alpine、Mithril、Backbone、Ember、Stencil、Aurelia、Fable**，以及 **Inferno、Riot、Marko、Million、htmx、Unpoly、Turbo（Hotwire）、原生 Web Components**；**Vike**（Vite SSR）；跨端 / 壳层含 **Electron、Tauri、Expo、React-Native（Web 宿主）、Ionic、Capacitor、Flutter、.NET MAUI（说明 + 生成指引）、Kotlin Mobile（KMM 源码片段）**；微软 / WASM 含 **Blazor WebAssembly、Blazor Server**。  
+- **全栈**：[`Full-stack/<名称>/`](Full-stack) — **Next.js、Nuxt、SvelteKit、Remix、Astro、Analog、Blitz、TanStack Router、RedwoodJS、SolidStart、Gatsby、Fresh（Deno）、Waku、Shopify Hydrogen** 等；其中 **Redwood / SolidStart / Gatsby / Waku / ShopifyHydrogen** 为 **`tsx` + Node `http` 占位** 与官方 CLI 链；清单与端口见 [`Full-stack/README.md`](Full-stack/README.md)。  
+- **后端**：[`Back-end/Node/`](Back-end/Node)（npm 栈，含 **GraphQL / tRPC / gRPC / Prisma / OpenAPI Generator** 等）、[`Back-end/Go/`](Back-end/Go)（各 `go.mod` 模块）、[`Back-end/JVM/`](Back-end/JVM)（Maven + JDK 17+，Ktor 为 Kotlin 源码）、[`Back-end/DotNet/`](Back-end/DotNet)（**.NET 9**）、[`Back-end/PHP/`](Back-end/PHP)（**PHP 内置服务器**）、[`Back-end/Python/`](Back-end/Python)（**pip / venv**）、[`Back-end/Ruby/`](Back-end/Ruby)（**Bundler + Rack**）、[`Back-end/Rust/`](Back-end/Rust)（**cargo**）、[`Back-end/Elixir/`](Back-end/Elixir)（**mix**）、[`Back-end/Deno/`](Back-end/Deno)（**deno task**）、[`Back-end/Scala/`](Back-end/Scala)（**sbt**）、[`Back-end/Clojure/`](Back-end/Clojure)（**Clojure CLI + deps.edn**）— 与前端子工程**无强制依赖关系**，可单独运行、单独对照。  
+- **工具链**：[`Tooling/<名称>/`](Tooling) — **Nx、Turborepo、Playwright**（**`tsx` + Node `http` 占位**，**3120–3122**）与 **Vitest**（**`npm test`** / `vitest run`，无 HTTP 端口）；说明见 [`Tooling/README.md`](Tooling/README.md)。
 
 ---
 
@@ -30,17 +32,19 @@
 
 | 用途 | 说明 |
 |------|------|
-| **前端对照** | 在同一需求下对比：组件框架（React / Vue / Svelte / Solid / Angular / Preact / Aurelia / Inferno / Riot / Marko）、**React 编译优化**（Million）、**全栈元框架**（见 `Full-stack/`）、**可恢复**（Qwik）、**Web 组件**（Lit / Stencil / 原生 Custom Elements）、**HTML 片段驱动**（htmx / Unpoly / Turbo）、**跨端与壳**（Electron / Tauri / Expo / RN-web / Ionic / Capacitor / Flutter / MAUI / KMM）、**Blazor（WASM / Server）**、**指令式**（Alpine）、**轻量 MVC**（Mithril / Backbone / Ember）、**F# 编译**（Fable）等写法与范式差异。 |
-| **后端对照** | 在 **Node**、**Go**、**JVM**、**DotNet / PHP / Python / Ruby**、**Rust / Elixir / Deno / Scala / Clojure** 之间对照：路由如何挂载、JSON 如何返回、常见中间件与项目结构有何不同（端口 **3000–3019、3002–3010、3020–3025、3070–3075、3080–3088、3089、3090–3096、3100–3109** 与 gRPC **30900** 见各表；**全栈** **3030–3038** 见 `Full-stack/`）。 |
+| **前端对照** | 在同一需求下对比：组件框架（React / Vue / Svelte / Solid / Angular / Preact / Aurelia / Inferno / Riot / Marko）、**React 编译优化**（Million）、**Vite 上 SSR 与文件路由**（Vike）、**全栈元框架**（见 `Full-stack/`）、**可恢复**（Qwik）、**Web 组件**（Lit / Stencil / 原生 Custom Elements）、**HTML 片段驱动**（htmx / Unpoly / Turbo）、**跨端与壳**（Electron / Tauri / Expo / RN-web / Ionic / Capacitor / Flutter / MAUI / KMM）、**Blazor（WASM / Server）**、**指令式**（Alpine）、**轻量 MVC**（Mithril / Backbone / Ember）、**F# 编译**（Fable）等写法与范式差异。 |
+| **后端对照** | 在 **Node**、**Go**、**JVM**、**DotNet / PHP / Python / Ruby**、**Rust / Elixir / Deno / Scala / Clojure** 之间对照：路由如何挂载、JSON 如何返回、常见中间件与项目结构有何不同（端口 **3000–3019、3002–3010、3020–3025、3070–3076、3080–3088、3089、3090–3096、3100–3104、3105–3109、3110–3117、3120–3125** 与 gRPC **30900** 见各表；**全栈** **3030–3043** 见 `Full-stack/`）。**Vitest** 无默认 HTTP 端口，见 [`Tooling/Vitest`](Tooling/Vitest)。 |
+| **工具链对照** | **Nx / Turborepo**（任务图、pipeline、远程缓存）与 **Vitest / Playwright**（单测、E2E）：见 [`Tooling/README.md`](Tooling/README.md) 与各子目录 `*-Tooling-TypeScript.md`。 |
 | **复制起步** | 选定某一栈后，**整目录复制**到自有项目或课程作业中，再按需删减展台代码、接入真实后端与鉴权。 |
 
 ---
 
 ## 环境要求
 
-- **Node.js**：建议当前 LTS（[`Front-end`](Front-end)、[`Full-stack`](Full-stack) 与 [`Back-end/Node`](Back-end/Node) 需要）。其中 **`Full-stack/Astro`** 模板要求 **Node ≥ 22.12**（见该目录 `package.json` 的 `engines`）。  
+- **Node.js**：建议当前 LTS（[`Front-end`](Front-end)、[`Full-stack`](Full-stack)、[`Back-end/Node`](Back-end/Node) 与 **[`Tooling/`](Tooling)** 需要）。其中 **`Full-stack/Astro`** 模板要求 **Node ≥ 22.12**（见该目录 `package.json` 的 `engines`）。  
 - **Bun**：[`Back-end/Node/Elysia`](Back-end/Node/Elysia) 使用 **Bun** 运行（`bun install` / `bun run dev`），与其余 **Node + npm** 子目录不同；未安装 Bun 时可跳过该目录。  
-- **AdonisJS / Strapi / Directus / SupabaseEdge / FirebaseFunctions / ServerlessAdapters**：本仓库在对应子目录内提供 **`/api/health` 与呈现页的 Node `http` 占位服务**（`tsx`）；完整平台或边缘运行时请见各目录 `*-Node-TypeScript.md` 中的官方 CLI 或文档链。  
+- **AdonisJS / Strapi / Directus / Medusa / Payload / Keystone / SupabaseEdge / FirebaseFunctions / ServerlessAdapters**：本仓库在对应子目录内提供 **`/api/health` 与呈现页的 Node `http` 占位服务**（`tsx`）；完整平台或边缘运行时请见各目录 `*-Node-TypeScript.md` 中的官方 CLI 或文档链。  
+- **Nx / Turborepo / Playwright（[`Tooling/`](Tooling)）**：与上类似，为 **Node `http` 占位**（`tsx`）；完整 Monorepo 或 E2E 工程请见各目录 `*-Tooling-TypeScript.md`。**Vitest** 同目录下无 HTTP，运行 **`npm test`** 即可。  
 - **Rust**：[`Front-end/Tauri`](Front-end/Tauri) 与 [`Back-end/Rust/Axum`](Back-end/Rust/Axum) 需 [Rust 工具链](https://www.rust-lang.org/tools/install)（`cargo`）；Tauri 另见 [Tauri 前置依赖](https://tauri.app/start/prerequisites/)。  
 - **Flutter**：[`Front-end/Flutter`](Front-end/Flutter) 需安装 [Flutter SDK](https://docs.flutter.dev/get-started/install)。  
 - **.NET**：[`Front-end/Fable`](Front-end/Fable)、[`Front-end/Blazor-WebAssembly`](Front-end/Blazor-WebAssembly)、[`Front-end/Blazor-Server`](Front-end/Blazor-Server)、[`Front-end/DotNet-Maui`](Front-end/DotNet-Maui) 等需安装 [.NET SDK](https://dotnet.microsoft.com/download) 及（MAUI 场景下）**MAUI 工作负载**；[`Back-end/DotNet/AspNetCore`](Back-end/DotNet/AspNetCore) **Minimal API** 对照后端需 **.NET SDK 9**（或按 `*.csproj` 降级为 8）。  
@@ -48,7 +52,7 @@
 - **JDK / Maven**：[`Back-end/JVM`](Back-end/JVM) 下 **Spring Boot、Quarkus、Micronaut、Vert.x、Ktor、Play** 需 **JDK 17+** 与 **Apache Maven 3.9+**（`mvn` 已加入 `PATH`）；各子目录命令见 [`Back-end/JVM/README.md`](Back-end/JVM/README.md) 与对应 `*-JVM*.md`。  
 - **PHP / Python / Ruby**：[`Back-end/PHP`](Back-end/PHP) 需 **PHP 8.2+**；[`Back-end/Python`](Back-end/Python) 建议 **Python 3.11+** 与 **`python -m venv`**；[`Back-end/Ruby`](Back-end/Ruby) 需 **Ruby 3.2+** 与 **Bundler**。汇总见各语言目录 `README.md`。  
 - **Elixir**：[`Back-end/Elixir/Phoenix`](Back-end/Elixir/Phoenix) 需 **Erlang/OTP**、**Elixir 1.14+** 与 **Hex**（`mix`）。  
-- **Deno**：[`Back-end/Deno/Oak`](Back-end/Deno/Oak) 需安装 [Deno](https://docs.deno.com/runtime/getting_started/installation/)（`deno`）。  
+- **Deno**：[`Back-end/Deno/Oak`](Back-end/Deno/Oak) 与 [`Full-stack/Fresh`](Full-stack/Fresh) 需安装 [Deno](https://docs.deno.com/runtime/getting_started/installation/)（`deno`）。  
 - **Scala / sbt**：[`Back-end/Scala/Http4s`](Back-end/Scala/Http4s) 需 **JDK 17+** 与 **sbt**（见该目录 `project/build.properties`）。  
 - **Clojure**：[`Back-end/Clojure/Pedestal`](Back-end/Clojure/Pedestal) 需 **Clojure CLI**（`clojure` / `clj`，可下载依赖自 Maven Central）。  
 - **包管理**：前端与 Node 后端示例使用 **npm**；若用 pnpm / yarn，请在各子目录内自行替换。  
@@ -90,6 +94,7 @@
 | [Front-end/Unpoly](Front-end/Unpoly) | Unpoly 3 · Vite · TS（`5195`） | [UNPOLY-Vite-TypeScript.md](Front-end/Unpoly/UNPOLY-Vite-TypeScript.md) |
 | [Front-end/Turbo](Front-end/Turbo) | @hotwired/turbo 8 · Vite · TS（`5196`） | [TURBO-Vite-TypeScript.md](Front-end/Turbo/TURBO-Vite-TypeScript.md) |
 | [Front-end/WebComponents](Front-end/WebComponents) | 原生 Custom Elements · Vite · TS（`5197`） | [WEBCOMPONENTS-Vite-TypeScript.md](Front-end/WebComponents/WEBCOMPONENTS-Vite-TypeScript.md) |
+| [Front-end/Vike](Front-end/Vike) | Vike · React 19 · Vite · TS（`5198`，SSR） | [VIKE-Vite-TypeScript.md](Front-end/Vike/VIKE-Vite-TypeScript.md) |
 | [Front-end/Electron](Front-end/Electron) | Electron · Vite · React · TS（Vite `5201`） | [ELECTRON-Vite-TypeScript.md](Front-end/Electron/ELECTRON-Vite-TypeScript.md) |
 | [Front-end/Tauri](Front-end/Tauri) | Tauri 2 · Rust · React · Vite（前端默认 `1420`） | [TAURI-React-TypeScript.md](Front-end/Tauri/TAURI-React-TypeScript.md) |
 | [Front-end/Expo](Front-end/Expo) | Expo · React Native · TS（`npm run web` 默认 `5208`） | [EXPO-React-Native-TypeScript.md](Front-end/Expo/EXPO-React-Native-TypeScript.md) |
@@ -115,8 +120,13 @@
 | [Full-stack/Blitz](Full-stack/Blitz) | Blitz 占位 · Next App Router | **http://127.0.0.1:3036/** | [BLITZ-FullStack-TypeScript.md](Full-stack/Blitz/BLITZ-FullStack-TypeScript.md) |
 | [Full-stack/RedwoodJS](Full-stack/RedwoodJS) | RedwoodJS 形态占位（Node `http`）+ 官方 CLI 说明 | **http://127.0.0.1:3037/** | [REDWOOD-FullStack-TypeScript.md](Full-stack/RedwoodJS/REDWOOD-FullStack-TypeScript.md) |
 | [Full-stack/tanstack-start](Full-stack/tanstack-start) | TanStack Router（CLI 模板）· Vite | **http://127.0.0.1:3038/** | [TANSTACK-FullStack-TypeScript.md](Full-stack/tanstack-start/TANSTACK-FullStack-TypeScript.md) |
+| [Full-stack/SolidStart](Full-stack/SolidStart) | SolidStart 形态占位（Node `http`）+ 官方 CLI 说明 | **http://127.0.0.1:3039/** | [SOLIDSTART-FullStack-TypeScript.md](Full-stack/SolidStart/SOLIDSTART-FullStack-TypeScript.md) |
+| [Full-stack/Gatsby](Full-stack/Gatsby) | Gatsby 形态占位（Node `http`）+ 官方 CLI 说明 | **http://127.0.0.1:3040/** | [GATSBY-FullStack-TypeScript.md](Full-stack/Gatsby/GATSBY-FullStack-TypeScript.md) |
+| [Full-stack/Fresh](Full-stack/Fresh) | Fresh 形态占位（`deno task dev`）+ 官方 init 说明 | **http://127.0.0.1:3041/** | [FRESH-FullStack-TypeScript.md](Full-stack/Fresh/FRESH-FullStack-TypeScript.md) |
+| [Full-stack/Waku](Full-stack/Waku) | Waku 形态占位（Node `http`）+ 官方 CLI 说明 | **http://127.0.0.1:3042/** | [WAKU-FullStack-TypeScript.md](Full-stack/Waku/WAKU-FullStack-TypeScript.md) |
+| [Full-stack/ShopifyHydrogen](Full-stack/ShopifyHydrogen) | Shopify Hydrogen 形态占位（Node `http`）+ 官方 CLI 说明 | **http://127.0.0.1:3043/** | [SHOPIFY-HYDROGEN-FullStack-TypeScript.md](Full-stack/ShopifyHydrogen/SHOPIFY-HYDROGEN-FullStack-TypeScript.md) |
 
-端口与补充说明（含 **RedwoodJS** 占位与完整 `yarn create` 说明）见：[Full-stack/README.md](Full-stack/README.md)。
+端口与补充说明（含 **RedwoodJS** 等占位与完整官方 CLI 说明）见：[Full-stack/README.md](Full-stack/README.md)。
 
 ### 后端 · Node（`Back-end/Node/`）
 
@@ -145,6 +155,14 @@
 | [Back-end/Node/TypeORM](Back-end/Node/TypeORM) | Fastify · TypeORM · **sql.js** | 呈现页 `http://127.0.0.1:3106/` · `GET /api/demo/items` | [TYPEORM-Node-TypeScript.md](Back-end/Node/TypeORM/TYPEORM-Node-TypeScript.md) |
 | [Back-end/Node/GraphQLFederation](Back-end/Node/GraphQLFederation) | Fastify 4 · Mercurius · **graphql-tools stitch** | `http://127.0.0.1:3107/` · GraphiQL `/graphiql` | [GRAPHQL-FEDERATION-Node-TypeScript.md](Back-end/Node/GraphQLFederation/GRAPHQL-FEDERATION-Node-TypeScript.md) |
 | [Back-end/Node/ConnectRpc](Back-end/Node/ConnectRpc) | Fastify 4 · **Connect（Buf）** Unary + 生成代码 `gen/` | 呈现页 `http://127.0.0.1:3108/` | [CONNECT-Buf-Node-TypeScript.md](Back-end/Node/ConnectRpc/CONNECT-Buf-Node-TypeScript.md) |
+| [Back-end/Node/Sequelize](Back-end/Node/Sequelize) | Fastify · Sequelize · **pg-mem**（内存 PostgreSQL） | 呈现页 `http://127.0.0.1:3113/` · `GET /api/demo/items` | [SEQUELIZE-Node-TypeScript.md](Back-end/Node/Sequelize/SEQUELIZE-Node-TypeScript.md) |
+| [Back-end/Node/MikroORM](Back-end/Node/MikroORM) | Fastify · MikroORM 7 · **LibSQL :memory:** | 呈现页 `http://127.0.0.1:3114/` · `GET /api/demo/items` | [MIKROORM-Node-TypeScript.md](Back-end/Node/MikroORM/MIKROORM-Node-TypeScript.md) |
+| [Back-end/Node/Medusa](Back-end/Node/Medusa) | 形态占位（Node `http`）+ 文档链 **无头电商** | 呈现页 `http://127.0.0.1:3115/` | [MEDUSA-Node-TypeScript.md](Back-end/Node/Medusa/MEDUSA-Node-TypeScript.md) |
+| [Back-end/Node/Payload](Back-end/Node/Payload) | 形态占位（Node `http`）+ 文档链 **Payload CMS** | 呈现页 `http://127.0.0.1:3116/` | [PAYLOAD-Node-TypeScript.md](Back-end/Node/Payload/PAYLOAD-Node-TypeScript.md) |
+| [Back-end/Node/Keystone](Back-end/Node/Keystone) | 形态占位（Node `http`）+ 文档链 **Keystone** | 呈现页 `http://127.0.0.1:3117/` | [KEYSTONE-Node-TypeScript.md](Back-end/Node/Keystone/KEYSTONE-Node-TypeScript.md) |
+| [Back-end/Node/ApolloRouter](Back-end/Node/ApolloRouter) | 形态占位（Node `http`）+ **Apollo Router · Fed v2** 文档链 | 呈现页 `http://127.0.0.1:3123/` | [APOLLOROUTER-Node-TypeScript.md](Back-end/Node/ApolloRouter/APOLLOROUTER-Node-TypeScript.md) |
+| [Back-end/Node/GrpcWeb](Back-end/Node/GrpcWeb) | 形态占位（Node `http`）+ **gRPC-Web + Envoy** 文档链 | 呈现页 `http://127.0.0.1:3124/` | [GRPCWEB-Node-TypeScript.md](Back-end/Node/GrpcWeb/GRPCWEB-Node-TypeScript.md) |
+| [Back-end/Node/ConnectRpcMulti](Back-end/Node/ConnectRpcMulti) | Fastify 4 · **Connect（Buf）** 双 Unary + `gen/` · **`buf breaking` 文档** | 呈现页 `http://127.0.0.1:3125/` | [CONNECT-MULTI-Buf-Node-TypeScript.md](Back-end/Node/ConnectRpcMulti/CONNECT-MULTI-Buf-Node-TypeScript.md) |
 
 ### 后端 · Go（`Back-end/Go/`）
 
@@ -174,6 +192,7 @@
 | 子项目 | 技术栈 | 默认 URL | 说明文档 |
 |--------|--------|----------|----------|
 | [Back-end/JVM/Spring-Boot](Back-end/JVM/Spring-Boot) | Spring Boot 3 · Web MVC | `http://127.0.0.1:3070/` | [SPRINGBOOT-JVM-Java.md](Back-end/JVM/Spring-Boot/SPRINGBOOT-JVM-Java.md) |
+| [Back-end/JVM/WebFlux](Back-end/JVM/WebFlux) | Spring Boot 3 · **WebFlux** · RouterFunction | `http://127.0.0.1:3076/` | [WEBFLUX-JVM-Java.md](Back-end/JVM/WebFlux/WEBFLUX-JVM-Java.md) |
 | [Back-end/JVM/Quarkus](Back-end/JVM/Quarkus) | Quarkus 3 · RESTEasy Reactive | `http://127.0.0.1:3071/` | [QUARKUS-JVM-Java.md](Back-end/JVM/Quarkus/QUARKUS-JVM-Java.md) |
 | [Back-end/JVM/Micronaut](Back-end/JVM/Micronaut) | Micronaut 4 · Netty | `http://127.0.0.1:3072/` | [MICRONAUT-JVM-Java.md](Back-end/JVM/Micronaut/MICRONAUT-JVM-Java.md) |
 | [Back-end/JVM/Vertx](Back-end/JVM/Vertx) | Vert.x 4 · Web | `http://127.0.0.1:3073/` | [VERTX-JVM-Java.md](Back-end/JVM/Vertx/VERTX-JVM-Java.md) |
@@ -182,7 +201,7 @@
 
 ### 后端 · DotNet / PHP / Python / Ruby
 
-汇总：**[`Back-end/DotNet/README.md`](Back-end/DotNet/README.md)**、**[`Back-end/PHP/README.md`](Back-end/PHP/README.md)**、**[`Back-end/Python/README.md`](Back-end/Python/README.md)**、**[`Back-end/Ruby/README.md`](Back-end/Ruby/README.md)**。默认端口 **3080–3087**；**SQLAlchemy** 独立样例为 **3109**（与 Node **3105–3108**、JVM **3070–3075** 错开）。
+汇总：**[`Back-end/DotNet/README.md`](Back-end/DotNet/README.md)**、**[`Back-end/PHP/README.md`](Back-end/PHP/README.md)**、**[`Back-end/Python/README.md`](Back-end/Python/README.md)**、**[`Back-end/Ruby/README.md`](Back-end/Ruby/README.md)**。默认端口 **3080–3087**；**SQLAlchemy** 独立样例为 **3109**（与 Node **3105–3108、3113–3117、3123–3125**、**Tooling 3120–3122**、JVM **3070–3076** 错开）。
 
 | 子项目 | 技术栈 | 默认 URL | 说明文档 |
 |--------|--------|----------|----------|
@@ -198,15 +217,29 @@
 
 ### 后端 · Rust / Elixir / Deno / Scala / Clojure
 
-汇总：**[`Back-end/Rust/README.md`](Back-end/Rust/README.md)**、**[`Back-end/Elixir/README.md`](Back-end/Elixir/README.md)**、**[`Back-end/Deno/README.md`](Back-end/Deno/README.md)**、**[`Back-end/Scala/README.md`](Back-end/Scala/README.md)**、**[`Back-end/Clojure/README.md`](Back-end/Clojure/README.md)**。默认端口 **3100–3104**；与 Node **Drizzle / TypeORM / GraphQLFederation / ConnectRpc（3105–3108）** 错开。
+汇总：**[`Back-end/Rust/README.md`](Back-end/Rust/README.md)**、**[`Back-end/Elixir/README.md`](Back-end/Elixir/README.md)**、**[`Back-end/Deno/README.md`](Back-end/Deno/README.md)**、**[`Back-end/Scala/README.md`](Back-end/Scala/README.md)**、**[`Back-end/Clojure/README.md`](Back-end/Clojure/README.md)**。**Rust**：**Axum 3100**、**actix-web 3110**、**Rocket 3111**、**warp 3112**；**Elixir / Deno / Scala / Clojure** 为 **3101–3104**；与 Node **Drizzle / TypeORM / GraphQLFederation / ConnectRpc（3105–3108）**、**Sequelize / MikroORM（3113–3114）**、**Medusa / Payload / Keystone（3115–3117）**、**Tooling Nx / Turborepo / Playwright（3120–3122）**、**ApolloRouter / GrpcWeb / ConnectRpcMulti（3123–3125）** 错开。
 
 | 子项目 | 技术栈 | 默认 URL | 说明文档 |
 |--------|--------|----------|----------|
-| [Back-end/Rust/Axum](Back-end/Rust/Axum) | Axum · Tokio（文档链 actix-web / Rocket / Warp） | `http://127.0.0.1:3100/` | [AXUM-Rust.md](Back-end/Rust/Axum/AXUM-Rust.md) |
+| [Back-end/Rust/Axum](Back-end/Rust/Axum) | Axum · Tokio | `http://127.0.0.1:3100/` | [AXUM-Rust.md](Back-end/Rust/Axum/AXUM-Rust.md) |
+| [Back-end/Rust/ActixWeb](Back-end/Rust/ActixWeb) | actix-web 4 | `http://127.0.0.1:3110/` | [ACTIXWEB-Rust.md](Back-end/Rust/ActixWeb/ACTIXWEB-Rust.md) |
+| [Back-end/Rust/Rocket](Back-end/Rust/Rocket) | Rocket 0.5 | `http://127.0.0.1:3111/` | [ROCKET-Rust.md](Back-end/Rust/Rocket/ROCKET-Rust.md) |
+| [Back-end/Rust/Warp](Back-end/Rust/Warp) | warp 0.3 | `http://127.0.0.1:3112/` | [WARP-Rust.md](Back-end/Rust/Warp/WARP-Rust.md) |
 | [Back-end/Elixir/Phoenix](Back-end/Elixir/Phoenix) | Plug · Bandit（`mix phx.new` 说明） | `http://127.0.0.1:3101/` | [PHOENIX-Elixir.md](Back-end/Elixir/Phoenix/PHOENIX-Elixir.md) |
 | [Back-end/Deno/Oak](Back-end/Deno/Oak) | Deno · Oak | `http://127.0.0.1:3102/` | [OAK-Deno-TypeScript.md](Back-end/Deno/Oak/OAK-Deno-TypeScript.md) |
 | [Back-end/Scala/Http4s](Back-end/Scala/Http4s) | Scala 3 · http4s Ember（文档链 Finch） | `http://127.0.0.1:3103/` | [HTTP4S-Scala.md](Back-end/Scala/Http4s/HTTP4S-Scala.md) |
 | [Back-end/Clojure/Pedestal](Back-end/Clojure/Pedestal) | Ring · Jetty（Pedestal 说明） | `http://127.0.0.1:3104/` | [PEDESTAL-Clojure.md](Back-end/Clojure/Pedestal/PEDESTAL-Clojure.md) |
+
+### 工具链 · Monorepo / 测试（`Tooling/`）
+
+| 子项目 | 技术栈 | 默认入口（本地） | 说明文档 |
+|--------|--------|------------------|----------|
+| [Tooling/Nx](Tooling/Nx) | 形态占位（Node `http`）+ **create-nx-workspace** 文档链 | 呈现页 `http://127.0.0.1:3120/` | [NX-Tooling-TypeScript.md](Tooling/Nx/NX-Tooling-TypeScript.md) |
+| [Tooling/Turborepo](Tooling/Turborepo) | 形态占位（Node `http`）+ **create-turbo** 文档链 | 呈现页 `http://127.0.0.1:3121/` | [TURBOREPO-Tooling-TypeScript.md](Tooling/Turborepo/TURBOREPO-Tooling-TypeScript.md) |
+| [Tooling/Playwright](Tooling/Playwright) | 形态占位（Node `http`）+ **npm init playwright** 文档链 | 呈现页 `http://127.0.0.1:3122/` | [PLAYWRIGHT-Tooling-TypeScript.md](Tooling/Playwright/PLAYWRIGHT-Tooling-TypeScript.md) |
+| [Tooling/Vitest](Tooling/Vitest) | Vite · Vitest · **最小 `vitest run`**（无 HTTP 端口） | 运行 **`npm test`**（见文档） | [VITEST-Tooling-TypeScript.md](Tooling/Vitest/VITEST-Tooling-TypeScript.md) |
+
+汇总见 [`Tooling/README.md`](Tooling/README.md)。
 
 ---
 
@@ -240,6 +273,7 @@ Framework/
 │   ├── Unpoly/
 │   ├── Turbo/
 │   ├── WebComponents/
+│   ├── Vike/
 │   ├── Capacitor/
 │   ├── DotNet-Maui/
 │   ├── Electron/
@@ -253,17 +287,32 @@ Framework/
 │   ├── Analog/
 │   ├── Astro/
 │   ├── Blitz/
+│   ├── Fresh/
+│   ├── Gatsby/
 │   ├── Nextjs/
 │   ├── Nuxt/
 │   ├── RedwoodJS/
 │   ├── Remix/
+│   ├── ShopifyHydrogen/
+│   ├── SolidStart/
 │   ├── SvelteKit/
-│   └── tanstack-start/
+│   ├── tanstack-start/
+│   └── Waku/
+├── Tooling/
+│   ├── Nx/
+│   ├── Turborepo/
+│   ├── Vitest/
+│   └── Playwright/
 └── Back-end/
     ├── Node/
     │   ├── AdonisJS/
+    │   ├── ApolloRouter/
     │   ├── ConnectRpc/
+    │   ├── ConnectRpcMulti/
     │   ├── Directus/
+    │   ├── Keystone/
+    │   ├── Medusa/
+    │   ├── Payload/
     │   ├── Drizzle/
     │   ├── Elysia/
     │   ├── Express/
@@ -272,10 +321,12 @@ Framework/
     │   ├── GraphQL/
     │   ├── GraphQLFederation/
     │   ├── Grpc/
+    │   ├── GrpcWeb/
     │   ├── Hapi/
     │   ├── Hono/
     │   ├── Koa/
     │   ├── NestJS/
+    │   ├── MikroORM/
     │   ├── OpenApiGenerator/
     │   ├── Prisma/
     │   ├── Restify/
@@ -283,7 +334,8 @@ Framework/
     │   ├── Strapi/
     │   ├── SupabaseEdge/
     │   ├── Trpc/
-    │   └── TypeORM/
+    │   ├── TypeORM/
+    │   └── Sequelize/
     ├── Go/
         ├── Beego/
         ├── Buffalo/
@@ -307,7 +359,8 @@ Framework/
         ├── Play/
         ├── Quarkus/
         ├── Spring-Boot/
-        └── Vertx/
+        ├── Vertx/
+        └── WebFlux/
     ├── DotNet/
     │   └── AspNetCore/
     ├── PHP/
@@ -322,7 +375,10 @@ Framework/
     │   ├── Hanami/
     │   └── Rails/
     ├── Rust/
-    │   └── Axum/
+    │   ├── ActixWeb/
+    │   ├── Axum/
+    │   ├── Rocket/
+    │   └── Warp/
     ├── Elixir/
     │   └── Phoenix/
     ├── Deno/
@@ -380,13 +436,13 @@ npm install
 npm start
 ```
 
-**Qwik / Preact / Lit / Alpine / Mithril / Backbone / Aurelia / Inferno / Riot / Marko / Million / Htmx / Unpoly / Turbo / WebComponents**（Vite 或各框架自带 dev）：在对应子目录执行 `npm install` 与 `npm run dev`（或 `npm start`）。**Ember**：`npm start`（`ember serve`）。**Stencil**：`npm start`。**Fable**：需先安装 .NET SDK，再按 [FABLE-DotNet.md](Front-end/Fable/FABLE-DotNet.md) 执行 `dotnet tool restore` 与 `dotnet fable`。**Blazor-WebAssembly / Blazor-Server**：安装 .NET SDK 后在该子目录执行 `dotnet run`（端口 **5210 / 5211**，见 `launchSettings.json`）。**Electron**：`npm run dev`（同时拉起 Vite 与 Electron）。**Tauri**：`npm run tauri dev`。**Expo**：`npm run web` / `npm start`。**React-Native**（Web 宿主）、**Ionic**、**Capacitor**：`npm run dev`。**Flutter**：`flutter pub get` 与 `flutter run`。**DotNet-Maui**、**Kotlin-Mobile**：见各目录说明（向导或 `dotnet new` 生成原生工程）。其中 **Inferno、Riot、Marko、Million、Htmx、Unpoly、Turbo、WebComponents** 的默认开发端口依次为 **5190–5197**；**Electron / React-Native / Ionic / Capacitor** 见各目录 **Vite** 配置（**5201、5204–5206**）；**Expo Web** 默认 **5208**；**Tauri** 前端开发端口默认 **1420**。
+**Qwik / Preact / Lit / Alpine / Mithril / Backbone / Aurelia / Inferno / Riot / Marko / Million / Htmx / Unpoly / Turbo / WebComponents / Vike**（Vite 或各框架自带 dev）：在对应子目录执行 `npm install` 与 `npm run dev`（或 `npm start`）。**Ember**：`npm start`（`ember serve`）。**Stencil**：`npm start`。**Fable**：需先安装 .NET SDK，再按 [FABLE-DotNet.md](Front-end/Fable/FABLE-DotNet.md) 执行 `dotnet tool restore` 与 `dotnet fable`。**Blazor-WebAssembly / Blazor-Server**：安装 .NET SDK 后在该子目录执行 `dotnet run`（端口 **5210 / 5211**，见 `launchSettings.json`）。**Electron**：`npm run dev`（同时拉起 Vite 与 Electron）。**Tauri**：`npm run tauri dev`。**Expo**：`npm run web` / `npm start`。**React-Native**（Web 宿主）、**Ionic**、**Capacitor**：`npm run dev`。**Flutter**：`flutter pub get` 与 `flutter run`。**DotNet-Maui**、**Kotlin-Mobile**：见各目录说明（向导或 `dotnet new` 生成原生工程）。其中 **Inferno、Riot、Marko、Million、Htmx、Unpoly、Turbo、WebComponents** 的默认开发端口依次为 **5190–5197**，**Vike** 为 **5198**；**Electron / React-Native / Ionic / Capacitor** 见各目录 **Vite** 配置（**5201、5204–5206**）；**Expo Web** 默认 **5208**；**Tauri** 前端开发端口默认 **1420**。
 
 构建、预览与各子项目脚本见对应目录下的说明文档（如 `REACT-Vite-TypeScript.md`、`QWIK-Vite-TypeScript.md`、`FASTIFY-Node-TypeScript.md` 等）。
 
 ### 全栈（`Full-stack/`）
 
-各子目录端口 **3030–3038**（含 **3037** RedwoodJS 占位），与 `Back-end` 默认端口错开。汇总表与 **RedwoodJS** 完整脚手架说明见 [Full-stack/README.md](Full-stack/README.md)。
+各子目录端口 **3030–3043**（含 **3037** RedwoodJS、**3041** Fresh 等占位），与 `Back-end` 默认端口错开。**Fresh** 在对应子目录执行 **`deno task dev`**（无需 `npm install`）。汇总表与各框架完整脚手架说明见 [Full-stack/README.md](Full-stack/README.md)。
 
 ```powershell
 Set-Location -LiteralPath 'f:\Study\Framework\Full-stack\Nextjs'
@@ -394,7 +450,7 @@ npm install
 npm run dev
 ```
 
-（其余 **Nuxt / SvelteKit / Remix / Astro / Analog / Blitz / RedwoodJS / tanstack-start** 同样在 `Full-stack/<目录>` 下执行 `npm install` 与 `npm run dev`（**RedwoodJS** 占位目录为 `tsx` 跑 `http` 服务），默认 URL 见上表或 `Full-stack/README.md`。）
+（其余 **Nuxt / SvelteKit / Remix / Astro / Analog / Blitz / RedwoodJS / tanstack-start / SolidStart / Gatsby / Waku / ShopifyHydrogen** 同样在 `Full-stack/<目录>` 下执行 `npm install` 与 `npm run dev`（占位目录为 `tsx` 跑 `http`）；**Fresh** 为 **`deno task dev`**。默认 URL 见上表或 `Full-stack/README.md`。）
 
 ### 后端 · Node
 
@@ -414,11 +470,11 @@ npm install
 npm run start:dev
 ```
 
-**其它 Node 后端（Express / Koa / Hapi / Restify / Hono）**：在对应子目录执行 `npm install` 与 `npm run dev`；默认端口 **3011–3014、3018**，呈现页与 **`GET /api/health`** 说明见各目录 `*-Node-TypeScript.md`。**GraphQL / tRPC / gRPC / OpenApiGenerator / Prisma / Drizzle / TypeORM / GraphQLFederation / ConnectRpc / SupabaseEdge / FirebaseFunctions / ServerlessAdapters** 见上表端口 **3088–3096、3105–3108**（gRPC 另见 **30900**）。
+**其它 Node 后端（Express / Koa / Hapi / Restify / Hono）**：在对应子目录执行 `npm install` 与 `npm run dev`；默认端口 **3011–3014、3018**，呈现页与 **`GET /api/health`** 说明见各目录 `*-Node-TypeScript.md`。**GraphQL / tRPC / gRPC / OpenApiGenerator / Prisma / Drizzle / TypeORM / GraphQLFederation / ConnectRpc / Sequelize / MikroORM / Medusa / Payload / Keystone / SupabaseEdge / FirebaseFunctions / ServerlessAdapters** 见上表端口 **3088–3096、3105–3108、3113–3117**；**ApolloRouter / GrpcWeb / ConnectRpcMulti** 为 **3123–3125**（gRPC 另见 **30900**）。
 
-**AdonisJS / Strapi / Directus / SupabaseEdge / FirebaseFunctions / ServerlessAdapters**：同样 `npm install` 与 `npm run dev`（`tsx` 跑占位 `http` 服务），默认端口 **3015–3017、3094–3096**；完整平台或函数运行时见各目录说明文档。
+**AdonisJS / Strapi / Directus / Medusa / Payload / Keystone / SupabaseEdge / FirebaseFunctions / ServerlessAdapters**：同样 `npm install` 与 `npm run dev`（`tsx` 跑占位 `http` 服务），默认端口 **3015–3017、3115–3117、3094–3096**；完整平台或函数运行时见各目录说明文档。
 
-**GraphQL / tRPC / gRPC / OpenAPI Generator / Prisma / Drizzle / TypeORM / GraphQLFederation / ConnectRpc / SupabaseEdge / FirebaseFunctions / ServerlessAdapters**：在对应子目录 `npm install` 与 `npm run start`（或 `npm run dev`）；默认端口 **3088–3090、3092–3096、3105–3108**，gRPC 另见 **`GRPC_PORT`（默认 30900）** 与 [`Back-end/Node/Grpc/GRPC-Node-TypeScript.md`](Back-end/Node/Grpc/GRPC-Node-TypeScript.md)。**ConnectRpc** 若修改 `proto/` 需执行 **`npm run generate`**（`buf generate`）。
+**GraphQL / tRPC / gRPC / OpenAPI Generator / Prisma / Drizzle / TypeORM / GraphQLFederation / ConnectRpc / Sequelize / MikroORM / Medusa / Payload / Keystone / SupabaseEdge / FirebaseFunctions / ServerlessAdapters**：在对应子目录 `npm install` 与 `npm run start`（或 `npm run dev`）；默认端口 **3088–3090、3092–3096、3105–3108、3113–3117**，gRPC 另见 **`GRPC_PORT`（默认 30900）** 与 [`Back-end/Node/Grpc/GRPC-Node-TypeScript.md`](Back-end/Node/Grpc/GRPC-Node-TypeScript.md)。**ConnectRpc** 与 **ConnectRpcMulti** 若修改 `proto/` 需执行 **`npm run generate`**（`buf generate`）。**ApolloRouter / GrpcWeb**：`npm run dev`（**3123–3124**）。**ConnectRpcMulti**：`npm install` 后 **`npm run generate`** 再 **`npm run dev`**（**3125**）。**Tooling**：[`Tooling/Nx`](Tooling/Nx)、[`Turborepo`](Tooling/Turborepo)、[`Playwright`](Tooling/Playwright) 为 **`npm run dev`**（**3120–3122**）；[`Tooling/Vitest`](Tooling/Vitest) 为 **`npm test`**（无 HTTP 端口）。
 
 **Elysia**（默认端口 `3019`，需 **Bun**）：
 
@@ -449,6 +505,8 @@ Set-Location -LiteralPath 'f:\Study\Framework\Back-end\JVM\Spring-Boot'
 mvn -q spring-boot:run
 ```
 
+**Spring WebFlux**（默认端口 **`3076`**）：[`Back-end/JVM/WebFlux`](Back-end/JVM/WebFlux) 下 **`mvn -q spring-boot:run`**，见 [WEBFLUX-JVM-Java.md](Back-end/JVM/WebFlux/WEBFLUX-JVM-Java.md)。
+
 **Quarkus**：`mvn -q quarkus:dev`。**Micronaut**：`mvn -q mn:run`。**Vert.x / Ktor / Play**：`mvn -q compile exec:java`。浏览器 URL 见上表或 [`Back-end/JVM/README.md`](Back-end/JVM/README.md)。
 
 ### 后端 · DotNet / PHP / Python / Ruby
@@ -460,19 +518,21 @@ mvn -q spring-boot:run
 
 ### 后端 · Rust / Elixir / Deno / Scala / Clojure
 
-- **Axum（Rust）**：`Set-Location` 到 [`Back-end/Rust/Axum`](Back-end/Rust/Axum) 后 **`cargo run`**（默认 **http://127.0.0.1:3100/**）。  
+- **Axum / actix-web / Rocket / warp（Rust）**：分别到 [`Back-end/Rust/Axum`](Back-end/Rust/Axum)、[`ActixWeb`](Back-end/Rust/ActixWeb)、[`Rocket`](Back-end/Rust/Rocket)、[`Warp`](Back-end/Rust/Warp) 执行 **`cargo run`**（默认 **3100、3110、3111、3112**）。  
 - **Phoenix 形态（Elixir）**：到 [`Back-end/Elixir/Phoenix`](Back-end/Elixir/Phoenix) 执行 **`mix deps.get`** 与 **`mix run --no-halt`**（默认 **3101**）。  
 - **Oak（Deno）**：到 [`Back-end/Deno/Oak`](Back-end/Deno/Oak) 执行 **`deno task dev`**（默认 **3102**）。  
 - **http4s（Scala）**：到 [`Back-end/Scala/Http4s`](Back-end/Scala/Http4s) 执行 **`sbt run`**（默认 **3103**）。  
-- **Pedestal 形态（Clojure）**：到 [`Back-end/Clojure/Pedestal`](Back-end/Clojure/Pedestal) 执行 **`clojure -M:run`**（默认 **3104**）。
+- **Pedestal 形态（Clojure）**：到 [`Back-end/Clojure/Pedestal`](Back-end/Clojure/Pedestal) 执行 **`clojure -M:run`**（默认 **3104**）。  
+- **Nx / Turborepo / Playwright（[`Tooling/`](Tooling)）**：`npm install` 与 `npm run dev`（默认 **3120–3122**），见各 `*-Tooling-TypeScript.md`。  
+- **Vitest**：到 [`Tooling/Vitest`](Tooling/Vitest) 执行 **`npm install`** 与 **`npm test`**。
 
 ---
 
 ## 约定与提示
 
-- **产物位置**：`node_modules`、`dist` 等出现在各 `Front-end/*`、`Full-stack/*` 与 `Back-end/Node/*` 子目录内；**`Back-end/Node/ConnectRpc/gen/`** 为 **Buf 生成物**（随 `proto/` 变更需 `npm run generate` 并提交）；`Back-end/Go` 下各模块在首次 `go mod tidy` 后生成 `go.sum`，`go build` 可在该子目录产出可执行文件；`Back-end/JVM/*` 与 **`Back-end/Scala/*`** 在 `mvn package` / `sbt package` 后产生 **`target/`**（已由根 `.gitignore` 忽略）；**`Back-end/Rust/*`** 的 **`target/`**、**`Back-end/Elixir/*`** 的 **`_build/`**、**`Back-end/Clojure/*`** 的 **`.cpcache/`** 同理；`Back-end/Python/*` 常见 **`.venv/`**、**`__pycache__/`** 与 **`SqlAlchemy/dev.db`**（已 `.gitignore`）；`Back-end/Ruby/*` 常见 **`.bundle/`**；`Back-end/DotNet/*` 的 **`bin/`、`obj/`**；`Back-end/PHP/*` 无 Composer 生成树时仅本地运行文件。  
+- **产物位置**：`node_modules`、`dist` 等出现在各 `Front-end/*`、`Full-stack/*`、`Back-end/Node/*` 与 **`Tooling/*`** 子目录内；**`Back-end/Node/ConnectRpc/gen/`**、**`Back-end/Node/ConnectRpcMulti/gen/`** 为 **Buf 生成物**（随 `proto/` 变更需 `npm run generate` 并提交）；`Back-end/Go` 下各模块在首次 `go mod tidy` 后生成 `go.sum`，`go build` 可在该子目录产出可执行文件；`Back-end/JVM/*` 与 **`Back-end/Scala/*`** 在 `mvn package` / `sbt package` 后产生 **`target/`**（已由根 `.gitignore` 忽略）；**`Back-end/Rust/*`** 的 **`target/`**、**`Back-end/Elixir/*`** 的 **`_build/`**、**`Back-end/Clojure/*`** 的 **`.cpcache/`** 同理；`Back-end/Python/*` 常见 **`.venv/`**、**`__pycache__/`** 与 **`SqlAlchemy/dev.db`**（已 `.gitignore`）；`Back-end/Ruby/*` 常见 **`.bundle/`**；`Back-end/DotNet/*` 的 **`bin/`、`obj/`**；`Back-end/PHP/*` 无 Composer 生成树时仅本地运行文件。  
 - **文档分层**：本文件只做**总览**；各子目录的**按栈命名说明**（如 `VUE-Vite-TypeScript.md`、`NESTJS-Node-TypeScript.md`、`GIN-Go.md`）在统一思路下补充 **框架简介**（定位、官网）、**本仓库角色**、**环境 / 安装 / 端口**、**与其它子项目对照** 等，便于选型学习与并排打开阅读。  
-- **跨栈对照**：多数 `Front-end/*` 为 **Vite 单页**；**Htmx / Unpoly / Turbo** 为 **HTML 片段 + 开发中间件** 形态（生产环境需接入真实模板路由）；**Electron / Tauri** 为 **桌面壳 + Web 前端**；**Expo / Capacitor / Ionic** 偏 **移动 + Web** 交付链路；**Flutter** 为 **Dart Widget**；**Blazor WebAssembly** 为 **C# → WASM**；**Blazor Server** 为 **服务端渲染 + SignalR**；**MAUI / KMM** 为 **原生 UI 栈**（本仓库对 MAUI、KMM 以说明与可合并源码为主，见各目录文档）；`Full-stack/*` 为 **全栈 / SSR / 同源 API**（实现方式因栈而异，见各目录 `*-FullStack-*.md`）。对照时可关注状态与副作用、模板与 JSX、Angular **signal**、Nitro / Route Handler、静态导出限制等。  
+- **跨栈对照**：多数 `Front-end/*` 为 **Vite 单页**；**Vike** 为 **Vite + 文件路由 + SSR**（见 `VIKE-Vite-TypeScript.md`）；**Htmx / Unpoly / Turbo** 为 **HTML 片段 + 开发中间件** 形态（生产环境需接入真实模板路由）；**Electron / Tauri** 为 **桌面壳 + Web 前端**；**Expo / Capacitor / Ionic** 偏 **移动 + Web** 交付链路；**Flutter** 为 **Dart Widget**；**Blazor WebAssembly** 为 **C# → WASM**；**Blazor Server** 为 **服务端渲染 + SignalR**；**MAUI / KMM** 为 **原生 UI 栈**（本仓库对 MAUI、KMM 以说明与可合并源码为主，见各目录文档）；`Full-stack/*` 为 **全栈 / SSR / 同源 API**（实现方式因栈而异，见各目录 `*-FullStack-*.md`）。对照时可关注状态与副作用、模板与 JSX、Angular **signal**、Nitro / Route Handler、静态导出限制等。  
 - **未收录框架清单**（前后端常见缺口）：根目录 [FRAMEWORK-GAP-LIST.md](FRAMEWORK-GAP-LIST.md)。
 
 ---
@@ -481,4 +541,4 @@ mvn -q spring-boot:run
 
 - 在各 `Front-end/*` 中用环境变量配置 Vite `dev` 代理，指向任一后端子项目。  
 - 按子项目独立补充 ESLint / Prettier 或 CI。  
-- 新增其它前端、**全栈**或后端目录时，继续沿用「**语言层目录**（如 `Front-end/`、`Full-stack/`、`Back-end/Node/`、`Back-end/DotNet/` 等）+ **具体框架子目录**」模式即可。
+- 新增其它前端、**全栈**、后端或 **`Tooling/`** 工具链目录时，继续沿用「**语言层 / 类别目录**（如 `Front-end/`、`Full-stack/`、`Back-end/Node/`、`Tooling/` 等）+ **具体名称子目录**」模式即可。

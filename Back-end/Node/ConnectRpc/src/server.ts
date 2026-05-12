@@ -30,7 +30,7 @@ app.get('/api/info', async (_req, reply) => {
       },
       {
         title: 'gRPC-Web / Envoy',
-        detail: '全链路网关与本 Unary 对照见 Node Grpc 子工程与 Buf 文档。',
+        detail: '全链路与浏览器侧说明见 Back-end/Node/GrpcWeb（3124）；多 Unary 服务见 ConnectRpcMulti（3125）。',
       },
     ],
   });
