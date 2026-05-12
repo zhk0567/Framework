@@ -39,18 +39,15 @@
 
 ## 六、Go 后端
 
-| 名称 | 备注 |
-|------|------|
-| **标准库 net/http** | 无第三方路由的最小服务 |
-| **gorilla/mux** | 经典路由 |
-| **Buffalo** | 全栈约定式 |
-| **Revel** | 较老的全栈框架 |
-| **GoFrame** | 国内常用全家桶 |
-| **go-swagger / oapi-codegen** | 生成式 OpenAPI 服务（偏工具链） |
+下列技术已迁入 **`Back-end/Go/`**（**Gin、Fiber、Echo、chi、Beego、Iris、go-zero、Kratos、go-kit** 为完整 `go run` 示例；**标准库 net/http、gorilla/mux、GoFrame** 为第六节原清单补全；**Buffalo、Revel** 为 **`net/http` 形态占位** + 各目录内 **官方 CLI** 说明；**OpenAPI/oapi-codegen** 为 **`openapi.yaml` + `GET /api/openapi` + 手写服务** 与生成命令说明）。默认端口 **3002–3010、3020–3025**；命令与树见根目录 [README.md](README.md)。
+
+**go-swagger** 与 **oapi-codegen** 同属 OpenAPI 工具链：本仓库以 **oapi-codegen** 为主示例目录；**go-swagger** 仍可作为未单独建子工程的生成/校验工具，见 [`Back-end/Go/OapiCodegen/OAPICodegen-Go.md`](Back-end/Go/OapiCodegen/OAPICodegen-Go.md) 中的链接。
 
 ---
 
 ## 七、其它语言 · JVM
+
+下列技术已迁入 **`Back-end/JVM/`**（**Spring Boot、Quarkus、Micronaut、Vert.x、Ktor** 为完整 **`mvn` 可运行** 示例；**Play** 为 **`HttpServer` 形态占位** + 目录内 **`PLAY-JVM.md`** 链官方 **`sbt new`** 模板）。默认端口 **3070–3075**；命令与树见根目录 [README.md](README.md)。
 
 | 名称 | 备注 |
 |------|------|

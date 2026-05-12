@@ -1,0 +1,22 @@
+openapi: 3.0.3
+info:
+  title: framework-back-end-oapi-codegen
+  version: "1.0.0"
+  description: 最小 OpenAPI 片段；完整服务端代码可用 oapi-codegen 从本文件生成（见 OAPICodegen-Go.md）。
+paths:
+  /api/health:
+    get:
+      operationId: getHealth
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [ok, service]
+                properties:
+                  ok:
+                    type: boolean
+                  service:
+                    type: string

@@ -13,7 +13,7 @@
 
 ## 与 Node / 其他 Go 后端子项目的关系
 
-- **默认端口 `3002`**；其它 Go 示例在同级目录 `Back-end/Go/*` 下，默认端口见仓库根目录 [README.md](../../../README.md)。可与 `Back-end/Node/Fastify`（3000）、`Back-end/Node/NestJS`（3001）同时运行（注意端口不冲突即可）。  
+- **默认端口 `3002`**；其它 Go 示例在同级目录 `Back-end/Go/*` 下，默认端口 **3003–3010、3020–3025** 见仓库根目录 [README.md](../../../README.md)。可与 `Back-end/Node/Fastify`（3000）、`Back-end/Node/NestJS`（3001）、其它 `Back-end/Node/*`（3011–3019）同时运行（注意端口不冲突即可）。
 - **路由对齐**：`/api/health`、`/api/demo/lifecycle`、`/api/items`、`/api/box/inner`，便于同一套 `fetch` 心智模型对照。  
 - **呈现页**：通过 `go:embed` 将 `public/index.html` 打进二进制，`GET /` 直接返回 HTML（不依赖工作目录下的静态文件服务配置）。
 
