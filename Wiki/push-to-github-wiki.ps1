@@ -27,8 +27,14 @@ if ([string]::IsNullOrWhiteSpace($ge)) { $ge = 'zhk0567@users.noreply.github.com
 git config user.name $gn
 git config user.email $ge
 
-git remote remove origin 2>$null
-git remote add origin $remote
+$prevEap = $ErrorActionPreference
+$ErrorActionPreference = 'SilentlyContinue'
+git remote remove origin 2>&1 | Out-Null
+$ErrorActionPreference = $prevEap
+git remote add origin $remote 2>&1 | Out-Null
+if ($LASTEXITCODE -ne 0) {
+  git remote set-url origin $remote
+}
 
 git add -A
 $st = git status --porcelain

@@ -1,6 +1,9 @@
 # Local scratch (API / version probes)
 _tmp-mikro/
 
+# Wiki push script creates a nested git repo here; do not track
+Wiki/GitHub-Wiki/.git/
+
 # OS / editor
 Thumbs.db
 Desktop.ini
