@@ -1,6 +1,6 @@
 # GitHub Wiki 发布说明
 
-本目录下的 `GitHub-Wiki/` 是从 `F:\commercial\deepwiki-open\Wiki\Framework` 的 DeepWiki 导出**整理后的 Markdown**（重命名页面、修正 `blob/main/` 链接中的反斜杠、增加 `Home.md` 与 `_Sidebar.md`）。
+本目录下的 `GitHub-Wiki/` 为面向 GitHub Wiki 整理后的 Markdown（重命名页面、修正 `blob/main/` 链接中的反斜杠、增加 `Home.md` 与 `_Sidebar.md`）。
 
 ## 推送到 GitHub Wiki 的前置条件
 

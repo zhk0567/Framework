@@ -1,7 +1,5 @@
 # Wiki Documentation for https://github.com/zhk0567/Framework
 
-Generated on: 2026-05-14 17:26:29
-
 ## Table of Contents
 
 - [项目概述 - 项目概述](#page-1)

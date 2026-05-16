@@ -1,9 +1,6 @@
 # Framework 实验仓库 Wiki
 
-本 Wiki 由本地 DeepWiki 导出整理后发布，对应主仓库：[zhk0567/Framework](https://github.com/zhk0567/Framework)。
-
-- 源导出目录（本地）：`F:\commercial\deepwiki-open\Wiki\Framework`
-- 原索引生成时间：2026-05-14 17:26:29
+本 Wiki 对应主仓库：[zhk0567/Framework](https://github.com/zhk0567/Framework)。
 
 ## 目录
 
